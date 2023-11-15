@@ -1,5 +1,6 @@
 ﻿using Entity.Constants;
 using Entity.Models;
+using Entity.Pagination;
 using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
@@ -47,7 +48,7 @@ namespace Entity.Services
             }
         }
 
-        public async Task<IEnumerable<DistrictView>> GetDistrictViews()
+        private async Task<IEnumerable<DistrictView>> GetDistrictViews()
         {
             var districts = await _districtRepository.GetAllAsync();
             var LstResult = new List<DistrictView>();
@@ -62,6 +63,17 @@ namespace Entity.Services
                 LstResult.Add(view);
             }
             return LstResult;
+        }
+
+        public async Task<PaginationSet<DistrictView>> GetListDistrict(int currentPage = 1, int pageSize = 5)
+        {
+            var districts = await GetDistrictViews();
+            var resutl = new PaginationSet<DistrictView>();
+            resutl.CurrentPage = currentPage;
+            resutl.TotalPages = (districts.Count() / pageSize) + 1;
+            resutl.Items = districts.Skip((currentPage - 1) * pageSize).Take(pageSize);
+            resutl.TotalCount = districts.Count();
+            return resutl;
         }
 
         public async Task<ResponseEntity> GetMultiDistrictByCondition(int cityId)

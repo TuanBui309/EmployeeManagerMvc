@@ -1,5 +1,6 @@
 ﻿using Entity.Constants;
 using Entity.Models;
+using Entity.Pagination;
 using Entity.Services.ViewModels;
 
 namespace Entity.Services.Interface
@@ -13,6 +14,6 @@ namespace Entity.Services.Interface
         Task<ResponseEntity> UpdateWard(WardViewModel model);
         Task<ResponseEntity> DeleteWard(int id);
         Task<ResponseEntity> GetSingleWard(int id);
-        Task<IEnumerable<WardViewModel>> GetWardViewModels();
+        Task<PaginationSet<WardViewModel>> GetListWard(int currentPage = 1, int pageSize = 5);
     }
 }

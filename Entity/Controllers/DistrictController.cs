@@ -21,9 +21,9 @@ namespace Entity.Controllers
             _validator = validator;
         }
 
-        public async Task<IActionResult> Index(int? page = null, int pageNumber = 1, int pageSize = 1)
+        public async Task<IActionResult> Index( int currentPage = 1, int pageSize = 1)
         {
-            var result = await _districtService.GetDistrictViews().Result.ToPagedListAsync(page ?? pageNumber, pageSize);
+            var result = await _districtService.GetListDistrict(currentPage);
             return PartialView(result);
         }
 

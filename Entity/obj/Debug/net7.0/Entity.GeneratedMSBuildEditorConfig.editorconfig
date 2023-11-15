@@ -9,209 +9,209 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Entity
 build_property.RootNamespace = Entity
-build_property.ProjectDir = D:\git\Mvc\EmployeeManagerMvc\Entity\
+build_property.ProjectDir = C:\Users\Admin\Documents\EmployeeManagerMvc\Entity\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\git\Mvc\EmployeeManagerMvc\Entity
+build_property.MSBuildProjectDirectory = C:\Users\Admin\Documents\EmployeeManagerMvc\Entity
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/Error.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/Privacy.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/_ViewImports.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/_ViewStart.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/City/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/City/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/City/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/City/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/City/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Degree/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Degree/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Degree/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Degree/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Degree/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/District/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/District/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/District/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/District/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/District/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Employee/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Employee/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Employee/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Employee/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Employee/ImportData.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/ImportData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW1wb3J0RGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Employee/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Home/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Home/Privacy.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Job/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Job/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Job/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Job/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Job/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Nation/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Nation/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Nation/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Nation/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Nation/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Shared/Error.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Ward/Create.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Ward/Delete.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Ward/Details.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Ward/Edit.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Ward/Index.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/_ViewImports.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/_ViewStart.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Pages/Shared/_Layout.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-q85zqme94z
 
-[D:/git/Mvc/EmployeeManagerMvc/Entity/Views/Shared/_Layout.cshtml]
+[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-m18nscoqf1

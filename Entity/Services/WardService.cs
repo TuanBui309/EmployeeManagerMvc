@@ -1,5 +1,6 @@
 ﻿using Entity.Constants;
 using Entity.Models;
+using Entity.Pagination;
 using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
@@ -40,6 +41,17 @@ namespace Entity.Services
         {
             var wards = await _wardRepository.GetAllAsync();
             return new ResponseEntity(StatusCodeConstants.OK, wards, MessageConstants.MESSAGE_SUCCESS_200);
+        }
+
+        public async Task<PaginationSet<WardViewModel>> GetListWard(int currentPage = 1, int pageSize = 5)
+        {
+            var wards = await GetWardViewModels();
+            var resutl = new PaginationSet<WardViewModel>();
+            resutl.CurrentPage = currentPage;
+            resutl.TotalPages = (wards.Count() / pageSize) + 1;
+            resutl.Items = wards.Skip((currentPage - 1) * pageSize).Take(pageSize);
+            resutl.TotalCount = wards.Count();
+            return resutl;
         }
 
         public async Task<ResponseEntity> GetMultiWardByCondition(int DistrictId)
@@ -94,7 +106,7 @@ namespace Entity.Services
             }
         }
 
-        public async Task<IEnumerable<WardViewModel>> GetWardViewModels()
+        private async Task<IEnumerable<WardViewModel>> GetWardViewModels()
         {
             var wards = await _wardRepository.GetAllAsync();
             var LstWard = new List<WardViewModel>();

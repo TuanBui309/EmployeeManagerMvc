@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KSlYQpP0Noohjv0Z8zxczcdx32x1VyplLKUsIrNDK6NHw82aHgFElPRaE4Hhl+sonRfBSO0XNOjyAjWsmLu5KA==",
+  "dgSpecHash": "4qb+mIc3t8Wc+G8+2TP4zLIAnyVQg5u4eBE5/FZ7BkNW7fsWiQrXR4th1CeP/AnXtYqZbh46jmMG2StPXsuasg==",
   "success": true,
-  "projectFilePath": "D:\\git\\Mvc\\EmployeeManagerMvc\\Entity\\Entity.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\Entity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -4024,11 +4024,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\Mvc\\EmployeeManagerMvc\\Entity\\Entity.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\Entity.csproj",
       "projectName": "Entity",
-      "projectPath": "D:\\git\\Mvc\\EmployeeManagerMvc\\Entity\\Entity.csproj",
+      "projectPath": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\Entity.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\Mvc\\EmployeeManagerMvc\\Entity\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

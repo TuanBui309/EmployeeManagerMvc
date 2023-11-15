@@ -1,8 +1,10 @@
 ﻿using Entity.Constants;
 using Entity.Models;
+using Entity.Pagination;
 using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
+using System.Net.WebSockets;
 using System.Text.RegularExpressions;
 namespace Entity.Services
 {
@@ -123,10 +125,17 @@ namespace Entity.Services
 
         }
 
-        public Task<IEnumerable<City>> GetListCity()
+        public async Task<PaginationSet<City>> GetListCity(int currentPage = 1, int pageSize = 5)
         {
-            var cities = _cityRepository.GetAllAsync();
-            return cities;
+            var cities = await _cityRepository.GetAllAsync();
+            var resutl = new PaginationSet<City>();
+            resutl.CurrentPage = currentPage;
+            resutl.TotalPages = (cities.Count() / pageSize) + 1;
+            resutl.Items = cities.Skip((currentPage - 1) * pageSize).Take(pageSize);
+            resutl.TotalCount = cities.Count();
+            return resutl;
         }
+
+
     }
 }

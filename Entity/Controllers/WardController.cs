@@ -21,9 +21,9 @@ namespace Entity.Controllers
             _wardValidator = validator;
         }
 
-        public async Task<IActionResult> Index(int? page = null, int pageNumbe = 1, int pageSize = 1)
+        public async Task<IActionResult> Index( int currentPage = 1, int pageSize = 1)
         {
-            var result = await _wardService.GetWardViewModels().Result.ToPagedListAsync(page ?? pageNumbe, pageSize);
+            var result = await _wardService.GetListWard(currentPage);
             return PartialView(result);
         }
 

@@ -1,6 +1,7 @@
 ﻿using Entity.Constants;
 using Entity.Services.ViewModels;
 using Entity.Models;
+using Entity.Pagination;
 
 namespace Entity.Services.Interface
 {
@@ -13,6 +14,6 @@ namespace Entity.Services.Interface
         Task<ResponseEntity> DeleteCity(int id);
         Task<ResponseEntity> GetAllCityByCondition(int id, string name);
         Task<ResponseEntity> GetSingleCity(int id);
-        Task<IEnumerable<City>> GetListCity();
+        Task<PaginationSet<City>> GetListCity(int currentPage=1,int pageSize=5);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Entity.Constants;
 using Entity.Models;
+using Entity.Pagination;
 using Entity.Services.ViewModels;
 namespace Entity.Services.Interface
 {
@@ -12,7 +13,7 @@ namespace Entity.Services.Interface
         Task<ResponseEntity> UpdateDistrict(DistrictViewModel model);
         Task<ResponseEntity> DeleteDistrict(int id);
         Task<ResponseEntity> GetSingleDistrict(int id);
-        Task<IEnumerable<DistrictView>> GetDistrictViews();
+        Task<PaginationSet<DistrictView>> GetListDistrict(int currentPage = 1, int pageSize = 5);
 
     }
 }

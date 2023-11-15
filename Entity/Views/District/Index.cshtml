@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Entity.Services.ViewModels.DistrictView>
+﻿@model Entity.Pagination.PaginationSet<Entity.Services.ViewModels.DistrictView>
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @{
@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Items)
         {
             <tr>
                 <td>
@@ -43,11 +43,13 @@
         }
     </tbody>
 </table>
-<div class="text-right">
-    @* @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index")) *@
-    @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {page = page}),
-    new X.PagedList.Web.Common.PagedListRenderOptions {
-    LiElementClasses = new string[] {"page-item"},
-    PageClasses = new string[] { "page-link" }
-    })
-</div>
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { currentPage = i,keyWord=@Context.Request.Query["keyWord"] })">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
