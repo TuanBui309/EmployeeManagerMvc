@@ -94,7 +94,7 @@ namespace Entity.Services
 				var Job = await _JobRepository.GetSingleByIdAsync(c => c.Id == model.Id);
 				if (Job == null)
 				{
-					return new ResponseEntity(StatusCodeConstants.NOT_FOUND, Job, MessageConstants.MESSAGE_ERROR_404);
+					return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
 				}
 				Job.Id = model.Id;
 				Job.JobName = model.JobName;
