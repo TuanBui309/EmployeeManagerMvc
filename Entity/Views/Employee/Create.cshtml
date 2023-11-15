@@ -1,0 +1,97 @@
+﻿@model Entity.Services.ViewModels.EmployeeViewModel
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3 class="text-center text-danger">@TempData["Error"]</h3>
+<form asp-action="Create">
+    <div class="center" style="height: 500px; width: 90%;border: 1px solid black;margin: 30px 5% 30px 5%;">
+        <div class="row">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="col-3 box">
+                <label for="name">1.Họ Tên:</label>
+                <input asp-for="Name" type="text" style="width: 100%;">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class=" col-3 box">
+                <label for="dateOfBirth">2.Ngày Sinh:</label>
+                <input asp-for="DateOfBirth" style="width: 100%;" type="date" id="date">
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class=" col-4 box">
+                <div class="col-3 box">
+                    <label for="age">3.Tuổi:</label>
+                    <input asp-for="Age" style="width: 90%;" type="number">
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="col-7 box">
+                    <label for="Nation">4.Dân Tộc:</label>
+                    <select asp-for="NationId"
+                            class="form-select"
+                            style="font-size: 12px"
+                            id="nation"></select>
+                    <span asp-validation-for="NationId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 box">
+                <label for="job">5.Nghề Nghiệp:</label>
+                <select asp-for="JobId"
+                        class="form-select"
+                        id="job"></select>
+                <span asp-validation-for="JobId" class="text-danger"></span>
+            </div>
+            <div class=" col-3 box">
+                <label for="identityCardNumber">6.Căn Cước Công Dân</label>
+                <input asp-for="IdentityCardNumber" type="text" id="IdentityCardNumber">
+                <div class="checkbox" style="display: flex;">
+                    <input onclick="setInputValue(IdentityCardNumber, this)" value="NoIdentityCardNumber" data-target="#IdentityCardNumber" type="checkbox">
+                    <label for="">Không có CCCD</label>
+                </div>
+                <span asp-validation-for="IdentityCardNumber" class="text-danger"></span>
+            </div>
+            <div class="col-3 box">
+                <label for="phoneNumber">7.Số Điện Thoại</label>
+                <input id="inputSDT" asp-for="PhoneNumber" type="text">
+                <div class="checkbox" style="display: flex;">
+                    <input onclick="setInputValue(inputSDT, this)" type="checkbox" data-target="#inputSDT">
+                    <label for="">Không có sđt</label>
+                </div>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <p class="box">8.Địa Chỉ:</p>
+            <div class="col-3 box">
+                <label for="city">Tỉnh/Thành phố:</label>
+                <select asp-for="CityId"
+                        class="form-select"
+                        id="city">
+                </select>
+                <span asp-validation-for="CityId" class="text-danger"></span>
+            </div>
+            <div class=" col-3 box">
+                <label for="district">Quận/Huyện:</label>
+                <select asp-for="DistrictId"
+                        class="form-select"
+                        id="district">
+                </select>
+                <span asp-validation-for="DistrictId" class="text-danger"></span>
+            </div>
+            <div class="col-3 box">
+                <label for="ward">Xã/Phường</label>
+                <select asp-for="WardId"
+                        class="form-select"
+                        id="ward">
+                </select>
+                <span asp-validation-for="WardId" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="botoom"
+         style="display: flex ;align-items: center;justify-content:space-between ; margin: 0 5% 0 5%;">
+        <a href=""> Danh sach employee </a>
+        <button class="btn primary" type="submit">Luu</button>
+    </div>
+</form>

@@ -1,0 +1,56 @@
+﻿@model Entity.Models.Employee
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Họ Tên</th>
+            <th>Ngày Sinh</th>
+            <th>Số Điện Thoại</th>
+            <th>Dân Tộc</th>
+            <th>Nghề Nghiệp</th>
+            <th>Căn Cước Công Dân</th>
+            <th>Tỉnh</th>
+            <th>Huyện</th>
+            <th>Xã/Phường</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Name
+            </td>
+            <td>
+                @Model.DateOfBirth
+            </td>
+            <td>
+                @Model.PhoneNumber
+            </td>
+            <td>
+                @Model.NationId
+            </td>
+            <td>
+                @Model.JobId
+            </td>
+            <td>
+                @Model.IdentityCardNumber
+            </td>
+            <td>
+                @Model.CityId
+            </td>
+            <td>
+                @Model.DistrictId
+            </td>
+            <td>
+                @Model.WardId
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhập", "Edit", new { id = Model.Id }, new { @class = "btn btn-success btn-sm" })
+                @Html.ActionLink("Xóa", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    </tbody>
+</table>

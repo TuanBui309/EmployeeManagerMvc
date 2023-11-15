@@ -1,0 +1,74 @@
+﻿@model Entity.Pagination.PaginationSet<Entity.Services.ViewModels.DegreeView>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@{
+	ViewData["Title"] = "Degree";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3 class="text-center text-success">@TempData["Success"]</h3>
+<h3 class="text-center text-danger">@TempData["ErrorLIne"]</h3>
+<h3 class="text-center text-danger">@TempData["Error"]</h3>
+<div class="row">
+	<div class="col-1">
+		<a class="btn btn-primary" asp-controller="Degree" asp-action="Create">Create</a>
+	</div>
+	<div class="col-2" style="position:absolute;right:170px">
+		<form asp-controller="Degree" asp-action="Index" method="get" class="my-2 mx-2">
+			<div class="input-group">
+				<input name="keyWord" class="form-control" id="inputSearch" aria-describedby="inputSearchComment" aria-label="Search">
+				<button style="height:30px;text-align:center" class="btn btn-outline-secondary" type="submit" id="inputSearch">Search</button>
+			</div>
+		</form>
+	</div>
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Họ Tên</th>
+			<th>Loại Văn Bằng</th>
+			<th>Ngày Đăng Kí</th>
+			<th>Đăng Kí Bởi</th>
+			<th>Ngày Hết Hạn</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Items)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.employeeName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DegreeName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateRange)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem=>item.IssuedBy)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateOfExpiry)
+				</td>
+				<td>
+					@Html.ActionLink("Cập nhập", "Edit", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+					@Html.ActionLink("Chi tiết", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-sm" })
+					@Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<nav>
+	<ul class="pagination">
+		@for (int i = 1; i <= Model.TotalPages; i++)
+		{
+			<li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+				<a class="page-link" href="@Url.Action("Index", new { currentPage = i,keyWord=@Context.Request.Query["keyWord"] })">@i</a>
+			</li>
+		}
+	</ul>
+</nav>

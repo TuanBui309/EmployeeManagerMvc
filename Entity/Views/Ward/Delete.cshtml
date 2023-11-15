@@ -1,0 +1,61 @@
+﻿@model Entity.Services.ViewModels.WardViewModel
+@{
+	ViewData["Title"] = "Degree";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-center text-danger">@TempData["Error"]</h3>
+
+
+
+<div class="row">
+	<div class="col-1">
+		<a class="btn btn-primary" asp-controller="" asp-action="Create">Create</a>
+	</div>
+
+	<div class="col-2" style="position:absolute;right:170px">
+		<form asp-controller="Ward" asp-action="Index" method="get" class="my-2 mx-2">
+			<div class="input-group">
+
+				<input name="keyWord" class="form-control" id="inputSearch" aria-describedby="inputSearchComment" aria-label="Search">
+				<button style="height:30px;text-align:center" class="btn btn-outline-secondary" type="submit" id="inputSearch">Search</button>
+
+			</div>
+		</form>
+	</div>
+
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>STT</th>
+			<th>Quận/Huyện</th>
+			<th>Xã/Phường</th>
+		</tr>
+	</thead>
+	<tbody>
+
+
+		<tr>
+			<td>
+				1
+			</td>
+			<td>
+				@Model.DistrictName
+			</td>
+			<td>
+				@Model.WardName
+			</td>
+			<td>
+				<form asp-action="Delete" asp-controller="Ward">
+					<input type="hidden" asp-for="Id" />
+					<input type="submit" name="Id" id="id" value="Delete" class="btn btn-danger" /> |
+					<a asp-action="Index">Back to List</a>
+				</form>
+			</td>
+
+		</tr>
+	</tbody>
+</table>
+
+

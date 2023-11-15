@@ -1,0 +1,21 @@
+﻿@model Entity.Services.ViewModels.EmployeeViewModel
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-controller="Employee" asp-action="ImportData" method="post" enctype="multipart/form-data">
+    <h3 class="text-center text-danger">@TempData["Error"]</h3>
+    <div class="center" style="height: 500px; width: 90%;border: 1px solid black;margin: 30px 5% 30px 5%;">
+        <div class="row">
+            <div class="col-3 box">
+                <label for="name">1.Choose file:</label>
+                <input type="file" accept=".xlsx" name="file" style="width: 100%;">
+            </div>
+        </div>
+    </div>
+    <div class="botoom"
+         style="display: flex ;align-items: center;justify-content:space-between ; margin: 0 5% 0 5%;">
+        <a href="/"> Danh sach employee </a>
+        <button class="btn primary" type="submit">Luu</button>
+    </div>
+</form>
