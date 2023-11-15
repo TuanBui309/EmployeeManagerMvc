@@ -105,9 +105,14 @@ namespace Entity.Controllers
 
         public async Task<ActionResult> Delete(int id)
         {
-            var employee = await _employeeService.GetEmployeeById(id);
-            return View(employee.Content);
-        }
+			var employee = await _employeeService.GetEmployeeById(id);
+			if (employee.StatusCode == StatusCodeConstants.NOT_FOUND)
+			{
+				TempData["Error"] = "Not Found";
+				return RedirectToAction("");
+			}
+			return View(employee.Content);
+		}
 
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirm(int id)
