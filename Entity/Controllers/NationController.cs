@@ -10,7 +10,7 @@ namespace Entity.Controllers
 
     public class NationController : Controller
     {
-        INationService _nationService;
+		private readonly INationService _nationService;
 
         public NationController(INationService nationService)
         {

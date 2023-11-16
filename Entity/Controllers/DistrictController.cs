@@ -13,7 +13,7 @@ namespace Entity.Controllers
     public class DistrictController : Controller
     {
         IValidator<DistrictViewModel> _validator;
-        IDistrictService _districtService;
+		private readonly IDistrictService _districtService;
 
         public DistrictController(IDistrictService districtService, IValidator<DistrictViewModel> validator)
         {
@@ -100,6 +100,7 @@ namespace Entity.Controllers
                 return View(model);
             }
         }
+
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _districtService.GetSingleDistrict(id);

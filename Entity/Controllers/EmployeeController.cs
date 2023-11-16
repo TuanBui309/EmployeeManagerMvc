@@ -125,7 +125,6 @@ namespace Entity.Controllers
 			}
 			TempData["Error"] = result.Message;
 			return RedirectToAction("");
-
 		}
 
 		[HttpGet, ActionName("ExportToExcel")]
@@ -163,28 +162,25 @@ namespace Entity.Controllers
 					Console.WriteLine(excelData);
 					if (excelData.Count() > 0)
 					{
-
 						for (int i = 0; i < excelData.Count; i++)
 						{
 							ValidationResult result = await _validator.ValidateAsync(excelData[i]);
 							if (result.IsValid)
 							{
-								await _employeeService.InsertEmployee(excelData[i]);
+								await _employeeService.InsertListtEmployee(excelData[i]);
 								TempData["Success"] = $"Added {i + 1} item";
 							}
 							else
 							{
-								TempData["ErrorLine"] = $"error in line {i + 1} ";
 								foreach (var fail in result.Errors)
 								{
-									TempData["Error"] += fail.PropertyName + " : " + fail.ErrorMessage + "\n" + "----";
+									TempData["Error"] += $"error in line {i + 1} : " + fail.PropertyName + " : " + fail.ErrorMessage + "\n" + "----";
 								}
-								return RedirectToAction("");
 							}
 						}
 					}
 					//return new ResponseEntity(StatusCodeConstants.OK, "Added all data from the file successfully", MessageConstants.INSERT_SUCCESS);
-					TempData["Success"] = "Added all data from the file successfully";
+					TempData["Success"] = "Added data from the file successfully";
 					return RedirectToAction("");
 				}
 				TempData["Error"] = "file is requied";
