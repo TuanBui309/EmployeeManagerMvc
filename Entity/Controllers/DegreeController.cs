@@ -12,7 +12,7 @@ namespace Entity.Controllers
 {
     public class DegreeController : Controller
     {
-        IDegreeService _degreeService;
+        private readonly IDegreeService _degreeService;
         private IValidator<DegreeViewModel> _validator;
         public DegreeController(IDegreeService degreeService, IValidator<DegreeViewModel> validator)
         {
@@ -36,6 +36,7 @@ namespace Entity.Controllers
             }
             return View(result.Content);
         }
+
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -122,6 +123,5 @@ namespace Entity.Controllers
             TempData["Error"] = result.Message;
             return RedirectToAction("");
         }
-
     }
 }

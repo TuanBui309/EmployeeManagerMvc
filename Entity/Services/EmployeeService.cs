@@ -62,7 +62,6 @@ namespace Entity.Services
 
 		public async Task<byte[]> DownloadReport(string keyWord)
 		{
-
 			string reportname = $"User_Wise_{Guid.NewGuid():N}.xlsx";
 			var entity = await GetEmployeeByKeyWord(keyWord);
 			var exportbytes = _employeeRepository.ExporttoExcel<EmployeeViewExport>(entity, reportname);
@@ -154,6 +153,29 @@ namespace Entity.Services
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
 			}
 		}
+		public async Task<ResponseEntity> InsertListtEmployee(EmployeeViewModel model)
+		{
+			try
+			{
+				Employee employee = new Employee();
+				employee.Name = model.Name;
+				employee.DateOfBirth = FuncUtilities.ConvertStringToDate(model.DateOfBirth);
+				employee.Age = model.Age;
+				employee.JobId = model.JobId;
+				employee.NationId = model.NationId;
+				employee.PhoneNumber = model.PhoneNumber;
+				employee.IdentityCardNumber = model.IdentityCardNumber;
+				employee.CityId = model.CityId;
+				employee.DistrictId = model.DistrictId;
+				employee.WardId = model.WardId;
+				employee = await _employeeRepository.InsertAsync(employee);
+				return new ResponseEntity(StatusCodeConstants.OK, employee, MessageConstants.INSERT_SUCCESS);
+			}
+			catch (Exception ex)
+			{
+				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
+			}
+		}
 
 		public async Task<ResponseEntity> UpdateEmployee(EmployeeViewModel model)
 		{
@@ -195,7 +217,6 @@ namespace Entity.Services
 					var currentSheet = package.Workbook.Worksheets;
 					var workSheet = currentSheet.First();
 					List<EmployeeViewModel> listEmployee = new List<EmployeeViewModel>();
-
 					for (int i = workSheet.Dimension.Start.Row + 1; i <= workSheet.Dimension.End.Row; i++)
 					{
 						EmployeeViewModel employeeView = new EmployeeViewModel();
@@ -215,15 +236,14 @@ namespace Entity.Services
 						employeeView.DistrictId = districtId;
 						int.TryParse(workSheet.Cells[i, 11].Value.ToString(), out int wardId);
 						employeeView.WardId = wardId;
-
 						listEmployee.Add(employeeView);
 					}
 					return listEmployee;
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				throw;
+				throw new(ex.Message);
 			}
 		}
 
