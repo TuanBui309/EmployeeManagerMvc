@@ -20,7 +20,7 @@ namespace Entity.Controllers
             _degreeService = degreeService;
         }
 
-        public async Task<IActionResult> Index(string keyWord, int? page,int currentPage)
+        public async Task<IActionResult> Index(string keyWord,int currentPage)
         {
             var result = await _degreeService.GetListDegree(keyWord,currentPage);
             return PartialView(result);

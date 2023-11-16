@@ -66,8 +66,8 @@ namespace Entity.Services
                     return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "aaa", MessageConstants.MESSAGE_ERROR_400);
                 }
                 singleCity.CityName = model.CityName;
-                transaction.Commit();
                 await _cityRepository.UpdateAsync(singleCity, singleCity);
+                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
             }
             catch (Exception ex)
@@ -133,7 +133,5 @@ namespace Entity.Services
             resutl.TotalCount = cities.Count();
             return resutl;
         }
-
-
     }
 }

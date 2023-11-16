@@ -51,7 +51,7 @@ namespace Entity.Repository.Infranstructure
         {
 
             var result = await table.AddAsync(entity);
-            _toDoContext.SaveChanges();
+            await _toDoContext.SaveChangesAsync();
             return result.Entity;
         }
 

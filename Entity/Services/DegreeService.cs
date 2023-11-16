@@ -158,8 +158,8 @@ namespace Entity.Services
                 degree.DateRange = FuncUtilities.ConvertStringToDate(model.DateRange);
                 degree.IssuedBy = model.IssuedBy;
                 degree.DateOfExpiry = FuncUtilities.ConvertStringToDate(model.DateOfExpiry);
-                transaction.Commit();
                 await _degreeRepository.UpdateAsync(degree, degree);
+                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, degree, MessageConstants.UPDATE_SUCCESS);
             }
             catch (Exception ex)
