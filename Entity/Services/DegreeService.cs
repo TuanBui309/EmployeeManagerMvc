@@ -11,8 +11,8 @@ namespace Entity.Services
 {
     public class DegreeService : IDegreeService
     {
-        IDegreeRepository _degreeRepository;
-        IEmployeeRepository _employeeRepository;
+        private readonly IDegreeRepository _degreeRepository;
+        private readonly IEmployeeRepository _employeeRepository;
         public DegreeService(IDegreeRepository degreeRepository, IEmployeeRepository employeeRepository) : base()
         {
             _degreeRepository = degreeRepository;
@@ -64,9 +64,9 @@ namespace Entity.Services
         private async Task<IEnumerable<DegreeView>> GetListDegreeBykeyWord(string keyWord = "")
         {
             IEnumerable<DegreeView> entity = await GetDegrees();
-            if (entity.Count() != 0)
+            if (entity.Any())
             {
-                if (keyWord != null)
+                if (!string.IsNullOrEmpty(keyWord))
                 {
                     List<DegreeView> LstGetByName = entity.Where(x => x.employeeName.ToLower().Trim().Contains(keyWord.ToLower())).ToList();
                     List<DegreeView> LstGetByDateRange = entity.Where(x => x.DateRange.Trim().Contains(keyWord.ToLower())).ToList();
@@ -80,7 +80,6 @@ namespace Entity.Services
                 return entity;
             }
             return entity;
-
         }
 
         private async Task<IEnumerable<DegreeView>> GetDegrees()
@@ -101,7 +100,6 @@ namespace Entity.Services
                 Listresult.Add(result);
             }
             return Listresult;
-
         }
 
         public async Task<ResponseEntity> GetSingleDegree(int id)
@@ -176,7 +174,7 @@ namespace Entity.Services
             var degree = await GetListDegreeBykeyWord(keyWord);
             PaginationSet<DegreeView> result = new PaginationSet<DegreeView>();
             result.CurrentPage = currenrPage;
-            result.TotalPages = (degree.Count() / pageSize) + 1;
+            result.TotalPages = (int)(Math.Ceiling((double)degree.Count() / pageSize));
             result.Items = degree.Skip((currenrPage - 1) * pageSize).Take(pageSize);
             result.TotalCount = degree.Count();
             return result;

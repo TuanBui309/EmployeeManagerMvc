@@ -9,8 +9,8 @@ namespace Entity.Services
 
     public class DistrictService : IDistrictService
     {
-        IDistrictRespository _districtRepository;
-        ICityRepository _cityRepository;
+        private readonly IDistrictRespository _districtRepository;
+        private readonly ICityRepository _cityRepository;
         public DistrictService(IDistrictRespository districtRespository, ICityRepository cityRepository) : base()
         {
             _districtRepository = districtRespository;
@@ -70,7 +70,7 @@ namespace Entity.Services
             var districts = await GetDistrictViews();
             var resutl = new PaginationSet<DistrictView>();
             resutl.CurrentPage = currentPage;
-            resutl.TotalPages = (districts.Count() / pageSize) + 1;
+            resutl.TotalPages = (int)(Math.Ceiling((double)districts.Count() / pageSize));
             resutl.Items = districts.Skip((currentPage - 1) * pageSize).Take(pageSize);
             resutl.TotalCount = districts.Count();
             return resutl;

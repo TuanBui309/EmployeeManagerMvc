@@ -38,8 +38,6 @@ builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<INationRepository, NationRepositoty>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IDegreeRepository, DegreeRepository>();
-
-
 //Service
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IDistrictService, DistrictService>();
@@ -77,6 +75,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 
 app.UseRouting();
 

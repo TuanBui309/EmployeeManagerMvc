@@ -61,8 +61,8 @@ namespace Entity.Controllers
 		[HttpPost("Employee/Create")]
 		public async Task<IActionResult> Create(EmployeeViewModel model)
 		{
-
-			ValidationResult result = await _validator.ValidateAsync(model);
+			
+            ValidationResult result = await _validator.ValidateAsync(model);
 			if (result.IsValid)
 			{
 				var employee = await _employeeService.InsertEmployee(model);
@@ -131,9 +131,10 @@ namespace Entity.Controllers
 		public async Task<IActionResult> ExportToExcel(string keyWord)
 		{
 			var exportbytes = await _employeeService.DownloadReport(keyWord);
-			if (exportbytes.Count() == 0)
+			if (exportbytes.Count() < 1)
 			{
 				TempData["Error"] = "Can't read data";
+				return RedirectToAction("");
 			}
 			return File(exportbytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "employee.xlsx");
 		}
@@ -174,7 +175,7 @@ namespace Entity.Controllers
 							{
 								foreach (var fail in result.Errors)
 								{
-									TempData["Error"] += $"error in line {i + 1} : " + fail.PropertyName + " : " + fail.ErrorMessage + "\n" + "----";
+									TempData["Error"] += $"Error in line {i + 1} : " + fail.PropertyName + " : " + fail.ErrorMessage + "\n" + "---- ";
 								}
 							}
 						}

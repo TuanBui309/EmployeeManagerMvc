@@ -16,12 +16,12 @@ namespace Entity.Services.Validation
 {
     public class EmployeeValidator : AbstractValidator<EmployeeViewModel>
     {
-        IJobRepository _jobRepository;
-        INationRepository _nationRepository;
-        IDistrictRespository _districtRespository;
-        IWardRepository _wardRepository;
-        ICityRepository _cityRepository;
-        IEmployeeRepository _employeeRepository;
+        private readonly IJobRepository _jobRepository;
+        private readonly INationRepository _nationRepository;
+        private readonly IDistrictRespository _districtRespository;
+        private readonly IWardRepository _wardRepository;
+        private readonly ICityRepository _cityRepository;
+        private readonly IEmployeeRepository _employeeRepository;
 
         public EmployeeValidator(IDistrictRespository districtRespository, IWardRepository wardRepository, ICityRepository cityRepository, IEmployeeRepository employeeRepository, IJobRepository jobRepository, INationRepository nationRepository)
         {

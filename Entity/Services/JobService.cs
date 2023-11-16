@@ -9,7 +9,7 @@ namespace Entity.Services
 
 	public class JobService : IJobService
 	{
-		IJobRepository _JobRepository;
+        private readonly IJobRepository _JobRepository;
 		public JobService(IJobRepository JobRepository) : base()
 		{
 			_JobRepository = JobRepository;

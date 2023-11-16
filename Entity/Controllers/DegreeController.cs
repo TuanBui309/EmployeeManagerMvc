@@ -13,7 +13,7 @@ namespace Entity.Controllers
     public class DegreeController : Controller
     {
         private readonly IDegreeService _degreeService;
-        private IValidator<DegreeViewModel> _validator;
+        private readonly IValidator<DegreeViewModel> _validator;
         public DegreeController(IDegreeService degreeService, IValidator<DegreeViewModel> validator)
         {
             _validator = validator;
@@ -78,6 +78,7 @@ namespace Entity.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(DegreeViewModel model)
         {
+
             ValidationResult validationResult = await _validator.ValidateAsync(model);
             if (validationResult.IsValid)
             {

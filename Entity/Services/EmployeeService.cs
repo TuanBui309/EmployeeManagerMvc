@@ -25,12 +25,12 @@ namespace Entity.Services
 
 	public class EmployeeService : IEmployeeService
 	{
-		IEmployeeRepository _employeeRepository;
-		IJobRepository _jobRepository;
-		INationRepository _nationRepository;
-		ICityRepository _cityRepository;
-		IDistrictRespository _districtRespository;
-		IWardRepository _wardRepository;
+        private readonly IEmployeeRepository _employeeRepository;
+		private readonly IJobRepository _jobRepository;
+        private readonly INationRepository _nationRepository;
+        private readonly ICityRepository _cityRepository;
+        private readonly IDistrictRespository _districtRespository;
+        private readonly IWardRepository _wardRepository;
 
 		public EmployeeService(IEmployeeRepository employeeRepository, IJobRepository jobRepository, INationRepository nationRepository, ICityRepository cityRepository, IDistrictRespository districtRespository, IWardRepository wardRepository) : base()
 		{
@@ -98,7 +98,7 @@ namespace Entity.Services
 			var employees = await GetEmployeeByKeyWord(keyWord);
 			PaginationSet<EmployeeViewExport> result = new PaginationSet<EmployeeViewExport>();
 			result.CurrentPage = pageNumber;
-			result.TotalPages = (employees.Count() / pageSize) + 1;
+			result.TotalPages = (int)(Math.Ceiling((double)employees.Count() / pageSize));
 			result.Items = employees.Skip((pageNumber - 1) * pageSize).Take(pageSize);
 			result.TotalCount = employees.Count();
 			return result;
@@ -252,7 +252,7 @@ namespace Entity.Services
 
 			IEnumerable<EmployeeViewExport> entity = await GetEmloyee();
 
-			if (entity.Count() != 0)
+			if (entity.Any())
 			{
 				if (!string.IsNullOrEmpty(keyWord))
 				{

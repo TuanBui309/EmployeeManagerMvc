@@ -11,8 +11,8 @@ namespace Entity.Services
 
     public class WardService : IWardService
     {
-        IWardRepository _wardRepository;
-        IDistrictRespository _districtRespository;
+        private readonly IWardRepository _wardRepository;
+        private readonly IDistrictRespository _districtRespository;
         public WardService(IWardRepository wardRepository, IDistrictRespository districtRespository) : base()
         {
             _wardRepository = wardRepository;
@@ -48,7 +48,7 @@ namespace Entity.Services
             var wards = await GetWardViewModels();
             var resutl = new PaginationSet<WardViewModel>();
             resutl.CurrentPage = currentPage;
-            resutl.TotalPages = (wards.Count() / pageSize) + 1;
+            resutl.TotalPages = (int)(Math.Ceiling((double)wards.Count() / pageSize));
             resutl.Items = wards.Skip((currentPage - 1) * pageSize).Take(pageSize);
             resutl.TotalCount = wards.Count();
             return resutl;
