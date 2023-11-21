@@ -1,9 +1,9 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
+﻿
 namespace Entity.Constants
 {
     public class StatusCodeConstants
     {
+       
         public static int ERROR_SERVER = 500;
         public static int BAD_REQUEST = 400;
         public static int NOT_FOUND = 404;

@@ -72,9 +72,11 @@ namespace Entity.Services
 			using var transaction = _jobRepository.BeginTransaction();
 			try
 			{
-				Job Jobs = new Job();
-				Jobs.JobName = model.JobName;
-				await _jobRepository.InsertAsync(Jobs);
+                Job Jobs = new()
+                {
+                    JobName = model.JobName
+                };
+                await _jobRepository.InsertAsync(Jobs);
 				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, Jobs, MessageConstants.INSERT_SUCCESS);
 			}

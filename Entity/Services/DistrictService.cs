@@ -1,6 +1,5 @@
 ﻿using Entity.Constants;
 using Entity.Models;
-using Entity.Pagination;
 using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
@@ -10,11 +9,10 @@ namespace Entity.Services
 	public class DistrictService : IDistrictService
 	{
 		private readonly IDistrictRespository _districtRepository;
-		private readonly ICityRepository _cityRepository;
-		public DistrictService(IDistrictRespository districtRespository, ICityRepository cityRepository) : base()
+		
+		public DistrictService(IDistrictRespository districtRespository) : base()
 		{
 			_districtRepository = districtRespository;
-			_cityRepository = cityRepository;
 		}
 
 		public async Task<ResponseEntity> DeleteDistrict(int id)
@@ -48,15 +46,10 @@ namespace Entity.Services
 			}
 		}
 
-		public async Task<PaginationSet<DistrictView>> GetListDistrict(string keyWord = "", int currentPage = 1, int pageSize = 5)
+		public async Task<IEnumerable<DistrictView>> GetListDistrict(string keyWord = "", int? pageNumber = null)
 		{
-			var districts = await _districtRepository.GetAllDistrictByKeyWord(keyWord);
-			var resutl = new PaginationSet<DistrictView>();
-			resutl.CurrentPage = currentPage;
-			resutl.TotalPages = (int)(Math.Ceiling((double)districts.Count() / pageSize));
-			resutl.Items = districts.Skip((currentPage - 1) * pageSize).Take(pageSize);
-			resutl.TotalCount = districts.Count();
-			return resutl;
+			var districts = await _districtRepository.GetAllDistrictByKeyWord(keyWord,pageNumber);
+			return districts;
 		}
 
 		public async Task<ResponseEntity> GetMultiDistrictByCondition(int cityId)
@@ -99,10 +92,12 @@ namespace Entity.Services
 			using var transaction = _districtRepository.BeginTransaction();
 			try
 			{
-				District districts = new District();
-				districts.CityId = model.CityId;
-				districts.DistictName = model.DistictName;
-				await _districtRepository.InsertAsync(districts);
+                District districts = new()
+                {
+                    CityId = model.CityId,
+                    DistictName = model.DistictName
+                };
+                await _districtRepository.InsertAsync(districts);
 				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, districts, MessageConstants.INSERT_SUCCESS);
 			}

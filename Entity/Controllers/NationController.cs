@@ -1,6 +1,4 @@
-﻿using Entity.Models;
-using Entity.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
 using Entity.Constants;

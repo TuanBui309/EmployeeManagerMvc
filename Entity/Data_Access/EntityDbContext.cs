@@ -81,7 +81,7 @@ namespace Entity.Data_Access
             });
             modelBuilder.Entity<Degree>(entity =>
             {
-                entity.HasOne(x => x.employee).WithMany()
+                entity.HasOne(x => x.Employee).WithMany()
                     .HasForeignKey(x => x.EmployeeId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("fk_employee_id");

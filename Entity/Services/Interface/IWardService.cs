@@ -14,6 +14,7 @@ namespace Entity.Services.Interface
 		Task<ResponseEntity> UpdateWard(WardViewModel model);
 		Task<ResponseEntity> DeleteWard(int id);
 		Task<ResponseEntity> GetSingleWard(int id);
-		Task<PaginationSet<WardViewModel>> GetListWard(string keyWord = "", int currentPage = 1, int pageSize = 5);
-	}
+		//Task<PaginationSet<WardViewModel>> GetListWard(string keyWord = "", int currentPage = 1, int pageSize = 5);
+        Task<IEnumerable<WardViewModel>> GetListWard(string keyWord = "", int? pageNumber = null);
+    }
 }

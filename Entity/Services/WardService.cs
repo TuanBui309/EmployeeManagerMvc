@@ -43,15 +43,10 @@ namespace Entity.Services
             return new ResponseEntity(StatusCodeConstants.OK, wards, MessageConstants.MESSAGE_SUCCESS_200);
         }
 
-        public async Task<PaginationSet<WardViewModel>> GetListWard(string keyWord = "", int currentPage = 1, int pageSize = 5)
+        public async Task<IEnumerable<WardViewModel>> GetListWard(string keyWord = "", int? pageNumber = null)
         {
-            var wards = await _wardRepository.GetAllWardByKeyWord(keyWord);
-            var resutl = new PaginationSet<WardViewModel>();
-            resutl.CurrentPage = currentPage;
-            resutl.TotalPages = (int)(Math.Ceiling((double)wards.Count() / pageSize));
-            resutl.Items = wards.Skip((currentPage - 1) * pageSize).Take(pageSize);
-            resutl.TotalCount = wards.Count();
-            return resutl;
+            var wards = await _wardRepository.GetAllWardByKeyWord(keyWord, pageNumber);
+            return wards;
         }
 
         public async Task<ResponseEntity> GetMultiWardByCondition(int DistrictId)
@@ -111,9 +106,11 @@ namespace Entity.Services
             using var transaction = _wardRepository.BeginTransaction();
             try
             {
-                Ward wards = new Ward();
-                wards.DistrictId = model.DistrictId;
-                wards.WardName = model.WardName;
+                Ward wards = new()
+                {
+                    DistrictId = model.DistrictId,
+                    WardName = model.WardName
+                };
                 await _wardRepository.InsertAsync(wards);
                 transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, wards, MessageConstants.INSERT_SUCCESS);

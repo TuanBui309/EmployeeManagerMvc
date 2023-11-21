@@ -9,7 +9,7 @@ namespace Entity.Services
 
     public class NationService : INationService
     {
-        INationRepository _nationRepository;
+        private readonly INationRepository _nationRepository;
         public NationService(INationRepository nationRepository) : base()
         {
             _nationRepository = nationRepository;
@@ -71,8 +71,10 @@ namespace Entity.Services
             using var transaction = _nationRepository.BeginTransaction();
             try
             {
-                Nation Nations = new Nation();
-                Nations.NationName = model.NationName;
+                Nation Nations = new()
+                {
+                    NationName = model.NationName
+                };
                 await _nationRepository.InsertAsync(Nations);
                 transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, Nations, MessageConstants.INSERT_SUCCESS);

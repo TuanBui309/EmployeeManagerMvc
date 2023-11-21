@@ -1,15 +1,9 @@
 ﻿using Entity.Constants;
-using Entity.Models;
-using Entity.Services;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
 using FluentValidation;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
-using System;
-using X.PagedList;
 
 namespace Entity.Controllers
 {

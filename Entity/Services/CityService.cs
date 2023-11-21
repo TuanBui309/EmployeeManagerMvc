@@ -4,21 +4,18 @@ using Entity.Pagination;
 using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
-using System.Net.WebSockets;
-using System.Text.RegularExpressions;
+
 namespace Entity.Services
 {
 
 	public class CityService : ICityService
 	{
 		private readonly ICityRepository _cityRepository;
-		private readonly IWardRepository _wardRepository;
-		private readonly IDistrictRespository _districtRepository;
-		public CityService(ICityRepository cityRespository, IDistrictRespository districtRespository, IWardRepository wardRepository) : base()
+		
+		public CityService(ICityRepository cityRespository) : base()
 		{
 			_cityRepository = cityRespository;
-			_wardRepository = wardRepository;
-			_districtRepository = districtRespository;
+			
 		}
 
 		public async Task<ResponseEntity> GetAllCity()
@@ -42,9 +39,11 @@ namespace Entity.Services
 			using var transaction = _cityRepository.BeginTransaction();
 			try
 			{
-				City Cities = new City();
-				Cities.CityName = model.CityName;
-				await _cityRepository.InsertAsync(Cities);
+                City Cities = new()
+                {
+                    CityName = model.CityName
+                };
+                await _cityRepository.InsertAsync(Cities);
 				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, Cities, MessageConstants.MESSAGE_SUCCESS_200);
 			}
@@ -117,7 +116,7 @@ namespace Entity.Services
 			}
 			var result = new CityViewModel
 			{
-				id = city.Id,
+				Id = city.Id,
 				CityName = city.CityName,
 			};
 			return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);
@@ -126,12 +125,14 @@ namespace Entity.Services
 		public async Task<PaginationSet<City>> GetListCity(int currentPage = 1, int pageSize = 5)
 		{
 			var cities = await _cityRepository.GetAllAsync();
-			var resutl = new PaginationSet<City>();
-			resutl.CurrentPage = currentPage;
-			resutl.TotalPages = (int)(Math.Ceiling((double)cities.Count() / pageSize));
-			resutl.Items = cities.Skip((currentPage - 1) * pageSize).Take(pageSize);
-			resutl.TotalCount = cities.Count();
-			return resutl;
+            var resutl = new PaginationSet<City>
+            {
+                CurrentPage = currentPage,
+                TotalPages = (int)(Math.Ceiling((double)cities.Count() / pageSize)),
+                Items = cities.Skip((currentPage - 1) * pageSize).Take(pageSize),
+                TotalCount = cities.Count()
+            };
+            return resutl;
 		}
 	}
 }

@@ -13,15 +13,15 @@ namespace Entity.Constants
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Message { get; set; }
 
-        public object Content { get; set; }
+        public object? Content { get; set; }
 
         public DateTime DateTime { get; set; }
 
-        public ResponseEntity(int statusCode, object content = null, string message = null)
+        public ResponseEntity(int statusCode, object? content=null , string message = "")
         {
             StatusCode = statusCode;
             Content = content;
-            Message = message ?? GetDefaultMessageForStatusCode(statusCode);
+            Message = message ;
             DateTime = DateTime.Now;
         }
 
@@ -31,22 +31,6 @@ namespace Entity.Constants
             await new ObjectResult(this).ExecuteResultAsync(context);
         }
 
-        private string GetDefaultMessageForStatusCode(int statusCode)
-        {   
-            switch (statusCode)
-            {
-                case 400:
-                    return MessageConstants.MESSAGE_ERROR_400;
-
-                case 404:
-                    return MessageConstants.MESSAGE_ERROR_404;
-
-                case 500:
-                    return MessageConstants.MESSAGE_ERROR_500;
-
-                default:
-                    return null;
-            }
-        }
+        
     }
 }

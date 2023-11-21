@@ -9,7 +9,7 @@ namespace Entity.Services.Validation
 {
 	public class DegreeValidetor : AbstractValidator<DegreeViewModel>
 	{
-		IDegreeRepository _degreeRepository;
+		private readonly IDegreeRepository _degreeRepository;
 		public DegreeValidetor(IDegreeRepository degreeRepository)
 		{
 			_degreeRepository = degreeRepository;
@@ -29,7 +29,7 @@ namespace Entity.Services.Validation
 		}
 		protected async Task<bool> IsvalidEmployeeId(DegreeViewModel model)
 		{
-			var degree = await _degreeRepository.GetMultiBycondition(x => x.EmployeeId == model.EmployeeId && FuncUtilities.ConvertStringToDate(model.DateOfExpiry) > DateTime.Now && x.Id != model.id);
+			var degree = await _degreeRepository.GetMultiBycondition(x => x.EmployeeId == model.EmployeeId && FuncUtilities.ConvertStringToDate(model.DateOfExpiry) > DateTime.Now && x.Id != model.Id);
 
 			return degree.Count() < Validations.MaximumNumberOfDegrees;
 		}

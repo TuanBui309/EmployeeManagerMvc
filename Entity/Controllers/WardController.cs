@@ -1,19 +1,16 @@
-﻿using Entity.Models;
-using Entity.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
 using FluentValidation;
 using FluentValidation.Results;
 using Entity.Constants;
-using X.PagedList;
 
 namespace Entity.Controllers
 {
 	public class WardController : Controller
 	{
 		private readonly IWardService _wardService;
-		IValidator<WardViewModel> _wardValidator;
+		private readonly IValidator<WardViewModel> _wardValidator;
 
 		public WardController(IWardService WardService, IValidator<WardViewModel> validator)
 		{
@@ -21,9 +18,9 @@ namespace Entity.Controllers
 			_wardValidator = validator;
 		}
 
-		public async Task<IActionResult> Index(string keyWord = "", int currentPage = 1)
+		public async Task<IActionResult> Index(string keyWord = "", int? pageNumber = null)
 		{
-			var result = await _wardService.GetListWard(keyWord, currentPage);
+			var result = await _wardService.GetListWard(keyWord, pageNumber);
 			return PartialView(result);
 		}
 

@@ -98,7 +98,7 @@ namespace Entity.Services.Validation
 		{
 			if (model.IdentityCardNumber != null)
 			{
-				var identityCardNumber = await _employeeRepository.GetSingleByIdAsync(x => x.Id != model.id && x.IdentityCardNumber == model.IdentityCardNumber);
+				var identityCardNumber = await _employeeRepository.GetSingleByIdAsync(x => x.Id != model.Id && x.IdentityCardNumber == model.IdentityCardNumber);
 				return identityCardNumber == null;
 			}
 			return true;

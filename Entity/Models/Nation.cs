@@ -5,7 +5,7 @@ namespace Entity.Models
     {
         [Key]
         public int Id { get; set; }
-        public string NationName { get; set; }
+        public string NationName { get; set; } = "";
 
     }
 

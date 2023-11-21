@@ -3,7 +3,7 @@
     public class NationViewModel
     {
         public int Id { get; set; }
-        public string NationName { get; set; }
+        public string NationName { get; set; } = "";
     }
 
 }

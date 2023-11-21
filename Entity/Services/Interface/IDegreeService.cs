@@ -12,7 +12,8 @@ namespace Entity.Services.Interface
 		Task<ResponseEntity> InsertDegree(DegreeViewModel model);
 		Task<ResponseEntity> UpdateDegree(DegreeViewModel model);
 		Task<ResponseEntity> DeleteDegree(int id);
-		Task<PaginationSet<DegreeView>> GetListDegree(string keyWord = "", int currenrPage = 1, int pageSize = 5);
-		Task<ResponseEntity> GetSingleDegree(int id);
+		//Task<PaginationSet<DegreeView>> GetListDegree(string keyWord = "", int currenrPage = 1, int pageSize = 5);
+        Task<IEnumerable<DegreeView>> GetListDegree(string keyWord = "", int? pageNumber = null);
+        Task<ResponseEntity> GetSingleDegree(int id);
 	}
 }
