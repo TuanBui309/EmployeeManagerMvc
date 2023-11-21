@@ -1,4 +1,6 @@
-﻿namespace Entity.Constants
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Entity.Constants
 {
     public class StatusCodeConstants
     {
@@ -9,5 +11,10 @@
         public static int FORBIDDEN = 403;
         public static int CREATED = 201;
         public static int OK = 200;
+
+    }
+    public class Validations
+    {
+        public static int MaximumNumberOfDegrees = 3;
     }
 }

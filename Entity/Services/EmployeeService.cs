@@ -60,42 +60,17 @@ namespace Entity.Services
             }
         }
 
-        public async Task<byte[]> DownloadReport(string keyWord)
+        public async Task<byte[]> DownloadReport(string keyWord="")
         {
-            string reportname = $"User_Wise_{Guid.NewGuid():N}.xlsx";
-            var entity = await GetEmployeeByKeyWord(keyWord);
-            var exportbytes = _employeeRepository.ExporttoExcel<EmployeeViewExport>(entity, reportname);
-            return exportbytes;
-        }
-
-        public async Task<List<EmployeeViewExport>> GetEmloyee()
-        {
-            var lsteEmlpoyee = await _employeeRepository.GetAllAsync();
-            var listResult = new List<EmployeeViewExport>();
-            foreach (var n in lsteEmlpoyee)
-            {
-                var result = new EmployeeViewExport
-                {
-                    Id = n.Id,
-                    Name = n.Name,
-                    DateOfBirth = FuncUtilities.ConvertDateToString(n.DateOfBirth),
-                    Age = n.Age,
-                    JobName = _jobRepository.GetSingleByIdAsync(x => x.Id == n.JobId).Result.JobName,
-                    NationName = _nationRepository.GetSingleByIdAsync(x => x.Id == n.NationId).Result.NationName,
-                    IdentityCardNumber = n.IdentityCardNumber,
-                    PhoneNumber = n.PhoneNumber,
-                    CityName = _cityRepository.GetSingleByIdAsync(x => x.Id == n.CityId).Result.CityName,
-                    DistrictName = _districtRespository.GetSingleByIdAsync(x => x.Id == n.DistrictId).Result.DistictName,
-                    WardName = _wardRepository.GetSingleByIdAsync(x => x.Id == n.WardId).Result.WardName
-                };
-                listResult.Add(result);
-            }
-            return listResult;
+            var reportName = $"User_Wise_{Guid.NewGuid():N}.xlsx";
+            var entity = await _employeeRepository.GetAllEmployeeByKeyWord(keyWord);
+            var exportBytes = _employeeRepository.ExporttoExcel<EmployeeViewExport>(entity, reportName);
+            return exportBytes;
         }
 
         public async Task<PaginationSet<EmployeeViewExport>> GetlistEmployee(string keyWord = "", int pageNumber = 1, int pageSize = 5)
         {
-            var employees = await GetEmployeeByKeyWord(keyWord);
+            var employees = await _employeeRepository.GetAllEmployeeByKeyWord(keyWord);
             PaginationSet<EmployeeViewExport> result = new PaginationSet<EmployeeViewExport>();
             result.CurrentPage = pageNumber;
             result.TotalPages = (int)(Math.Ceiling((double)employees.Count() / pageSize));
@@ -106,7 +81,7 @@ namespace Entity.Services
 
         public async Task<ResponseEntity> GetAllEmployee(string keyWord = "", int soTrang = 1, int soPhanTuTrenTrang = 10)
         {
-            var employees = await GetEmployeeByKeyWord(keyWord);
+            var employees =await _employeeRepository.GetAllEmployeeByKeyWord(keyWord);
             return new ResponseEntity(StatusCodeConstants.OK, employees, MessageConstants.MESSAGE_SUCCESS_200);
         }
 
@@ -245,35 +220,6 @@ namespace Entity.Services
             {
                 throw new(ex.Message);
             }
-        }
-
-        private async Task<IEnumerable<EmployeeViewExport>> GetEmployeeByKeyWord(string keyWord)
-        {
-
-            IEnumerable<EmployeeViewExport> entity = await GetEmloyee();
-
-            if (entity.Any())
-            {
-                if (!string.IsNullOrEmpty(keyWord))
-                {
-                    List<EmployeeViewExport> lstGetByEmployeeName = entity.Where(n => n.Name.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToList();
-                    List<EmployeeViewExport> lstGetByNationName = entity.Where(n => n.NationName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToList();
-                    List<EmployeeViewExport> lstGetByJobName = entity.Where(n => n.JobName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToList();
-                    List<EmployeeViewExport> lstGetByCityName = entity.Where(n => n.CityName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToList();
-                    List<EmployeeViewExport> lstGetByDistrictName = entity.Where(n => n.DistrictName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToList();
-                    List<EmployeeViewExport> lstGetByWardName = entity.Where(n => n.WardName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToList();
-                    IEnumerable<EmployeeViewExport> result = new List<EmployeeViewExport>();
-                    result = result.Union(lstGetByEmployeeName);
-                    result = result.Union(lstGetByNationName);
-                    result = result.Union(lstGetByJobName);
-                    result = result.Union(lstGetByCityName);
-                    result = result.Union(lstGetByDistrictName);
-                    result = result.Union(lstGetByWardName);
-                    return result;
-                }
-                return entity;
-            }
-            return entity;
         }
 
         public async Task<ResponseEntity> GetSingleEmployee(int id)

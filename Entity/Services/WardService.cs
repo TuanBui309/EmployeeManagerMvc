@@ -43,9 +43,9 @@ namespace Entity.Services
             return new ResponseEntity(StatusCodeConstants.OK, wards, MessageConstants.MESSAGE_SUCCESS_200);
         }
 
-        public async Task<PaginationSet<WardViewModel>> GetListWard(int currentPage = 1, int pageSize = 5)
+        public async Task<PaginationSet<WardViewModel>> GetListWard(string keyWord = "", int currentPage = 1, int pageSize = 5)
         {
-            var wards = await GetWardViewModels();
+            var wards = await _wardRepository.GetAllWardByKeyWord(keyWord);
             var resutl = new PaginationSet<WardViewModel>();
             resutl.CurrentPage = currentPage;
             resutl.TotalPages = (int)(Math.Ceiling((double)wards.Count() / pageSize));
@@ -104,26 +104,6 @@ namespace Entity.Services
             {
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.MESSAGE_ERROR_404);
             }
-        }
-
-        private async Task<IEnumerable<WardViewModel>> GetWardViewModels()
-        {
-            var wards = await _wardRepository.GetAllAsync();
-            var LstWard = new List<WardViewModel>();
-            foreach (var ward in wards)
-            {
-                var result = new WardViewModel
-                {
-                    Id = ward.Id,
-                    DistrictId = ward.DistrictId,
-                    DistrictName = _districtRespository.GetSingleByIdAsync(x => x.Id == ward.DistrictId).Result.DistictName,
-                    WardName = ward.WardName,
-                };
-                LstWard.Add(result);
-
-            }
-            return LstWard;
-
         }
 
         public async Task<ResponseEntity> InsertWard(WardViewModel model)

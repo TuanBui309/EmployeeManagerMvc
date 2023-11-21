@@ -9,22 +9,22 @@ namespace Entity.Services
 
 	public class JobService : IJobService
 	{
-        private readonly IJobRepository _JobRepository;
-		public JobService(IJobRepository JobRepository) : base()
+		private readonly IJobRepository _jobRepository;
+		public JobService(IJobRepository jobRepository) : base()
 		{
-			_JobRepository = JobRepository;
+			_jobRepository = jobRepository;
 		}
 
 		public async Task<ResponseEntity> DeleteJob(int id)
 		{
 			try
 			{
-				var Job = await _JobRepository.GetSingleByIdAsync(c => c.Id == id);
+				var Job = await _jobRepository.GetSingleByIdAsync(c => c.Id == id);
 				if (Job == null)
 				{
 					return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
 				}
-				await _JobRepository.DeleteAsync(Job);
+				await _jobRepository.DeleteAsync(Job);
 				return new ResponseEntity(StatusCodeConstants.OK, Job, MessageConstants.DELETE_SUCCESS);
 			}
 			catch (Exception ex)
@@ -35,13 +35,13 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> GetAllJob()
 		{
-			var Jobs = await _JobRepository.GetAllAsync();
+			var Jobs = await _jobRepository.GetAllAsync();
 			return new ResponseEntity(StatusCodeConstants.OK, Jobs, MessageConstants.MESSAGE_SUCCESS_200);
 		}
 
 		public async Task<ResponseEntity> GetSingleJob(int id)
 		{
-			var job = await _JobRepository.GetSingleByIdAsync(x => x.Id == id);
+			var job = await _jobRepository.GetSingleByIdAsync(x => x.Id == id);
 			if (job == null)
 			{
 				return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
@@ -54,7 +54,7 @@ namespace Entity.Services
 		{
 			try
 			{
-				var Job = await _JobRepository.GetSingleByIdAsync(c => c.Id == id);
+				var Job = await _jobRepository.GetSingleByIdAsync(c => c.Id == id);
 				if (Job == null)
 				{
 					return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
@@ -69,12 +69,12 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> InsertJob(JobViewModel model)
 		{
-			using var transaction = _JobRepository.BeginTransaction();
+			using var transaction = _jobRepository.BeginTransaction();
 			try
 			{
 				Job Jobs = new Job();
 				Jobs.JobName = model.JobName;
-				await _JobRepository.InsertAsync(Jobs);
+				await _jobRepository.InsertAsync(Jobs);
 				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, Jobs, MessageConstants.INSERT_SUCCESS);
 			}
@@ -87,18 +87,18 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> UpdateJob(JobViewModel model)
 		{
-			using var transaction = _JobRepository.BeginTransaction();
+			using var transaction = _jobRepository.BeginTransaction();
 			try
 			{
 
-				var Job = await _JobRepository.GetSingleByIdAsync(c => c.Id == model.Id);
+				var Job = await _jobRepository.GetSingleByIdAsync(c => c.Id == model.Id);
 				if (Job == null)
 				{
 					return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
 				}
 				Job.Id = model.Id;
 				Job.JobName = model.JobName;
-				await _JobRepository.UpdateAsync(Job, Job);
+				await _jobRepository.UpdateAsync(Job, Job);
 				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
 			}

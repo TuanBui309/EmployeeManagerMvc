@@ -61,47 +61,6 @@ namespace Entity.Services
             }
         }
 
-        private async Task<IEnumerable<DegreeView>> GetListDegreeBykeyWord(string keyWord = "")
-        {
-            IEnumerable<DegreeView> entity = await GetDegrees();
-            if (entity.Any())
-            {
-                if (!string.IsNullOrEmpty(keyWord))
-                {
-                    List<DegreeView> LstGetByName = entity.Where(x => x.employeeName.ToLower().Trim().Contains(keyWord.ToLower())).ToList();
-                    List<DegreeView> LstGetByDateRange = entity.Where(x => x.DateRange.Trim().Contains(keyWord.ToLower())).ToList();
-                    List<DegreeView> LstGetByDateOfExpiry = entity.Where(x => x.DateOfExpiry.Trim().Contains(keyWord.ToLower())).ToList();
-                    IEnumerable<DegreeView> result = new List<DegreeView>();
-                    result = result.Union(LstGetByName);
-                    result = result.Union(LstGetByDateOfExpiry);
-                    result = result.Union(LstGetByDateRange);
-                    return result;
-                }
-                return entity;
-            }
-            return entity;
-        }
-
-        private async Task<IEnumerable<DegreeView>> GetDegrees()
-        {
-            var ListDegree = await _degreeRepository.GetAllAsync();
-            var Listresult = new List<DegreeView>();
-            foreach (var degree in ListDegree)
-            {
-                var result = new DegreeView
-                {
-                    Id = degree.Id,
-                    employeeName = _employeeRepository.GetSingleByIdAsync(x => x.Id == degree.EmployeeId).Result.Name,
-                    DegreeName = degree.DegreeName,
-                    DateRange = FuncUtilities.ConvertDateToString(degree.DateRange),
-                    IssuedBy = degree.IssuedBy,
-                    DateOfExpiry = FuncUtilities.ConvertDateToString(degree.DateOfExpiry)
-                };
-                Listresult.Add(result);
-            }
-            return Listresult;
-        }
-
         public async Task<ResponseEntity> GetSingleDegree(int id)
         {
             var degree = await _degreeRepository.GetSingleByIdAsync(x => x.Id == id);
@@ -171,7 +130,7 @@ namespace Entity.Services
 
         public async Task<PaginationSet<DegreeView>> GetListDegree(string keyWord = "",int currenrPage = 1,int pageSize=5)
         {
-            var degree = await GetListDegreeBykeyWord(keyWord);
+            var degree = await _degreeRepository.GetAllDegreeByKeyWord(keyWord);
             PaginationSet<DegreeView> result = new PaginationSet<DegreeView>();
             result.CurrentPage = currenrPage;
             result.TotalPages = (int)(Math.Ceiling((double)degree.Count() / pageSize));

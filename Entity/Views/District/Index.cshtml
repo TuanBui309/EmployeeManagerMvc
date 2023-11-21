@@ -11,6 +11,14 @@
     <div class="col-1">
         <a class="btn btn-primary" asp-controller="District" asp-action="Create">Create</a>
     </div>
+    <div class="col-2" style="position:absolute;right:170px">
+        <form asp-controller="District" asp-action="Index" method="get" class="my-2 mx-2">
+            <div class="input-group">
+                <input name="keyWord" class="form-control" id="inputSearch" aria-describedby="inputSearchComment" aria-label="Search">
+                <button style="height:30px;text-align:center" class="btn btn-outline-secondary" type="submit" id="inputSearch">Search</button>
+            </div>
+        </form>
+    </div>
 </div>
 <table class="table table-striped">
     <thead>
