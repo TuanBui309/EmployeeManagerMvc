@@ -14,7 +14,7 @@
         <a class="btn btn-primary" asp-controller="Employee" asp-action="Create">Create</a>
     </div>
     <div class="col-1">
-        <a class="btn btn-primary" asp-action="ExportToExcel" asp-controller="Employee"> Export</a>
+        @Html.ActionLink("Export", "ExportToExcel", new {keyWord = @Context.Request.Query["keyWord"] }, new { @class = "btn btn-primary" })
     </div>
     <div class="col-1"><a class="btn btn-primary" asp-action="ImportData" asp-controller="Employee"> ImportData</a></div>
     <div class="col-2" style="position:absolute;right:170px">
@@ -82,7 +82,6 @@
     </tbody>
 </table>
 <div class="text-right">
-    @* @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index")) *@
     @Html.PagedListPager((IPagedList) Model, page => Url.Action("Index", new {pageNumber = page,
     keyWord = @Context.Request.Query["keyWord"],
     }),

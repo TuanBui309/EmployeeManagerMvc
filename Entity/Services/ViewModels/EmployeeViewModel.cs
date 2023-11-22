@@ -17,6 +17,7 @@ namespace Entity.Services.ViewModels
         public int DistrictId { get; set; }
         public int WardId { get; set; }
     }
+
     public class EmployeeViewExport
     {
         public int Id { get; set; }

@@ -85,7 +85,6 @@ namespace Entity.Services
 				DistictName = district.DistictName,
 			};
 			return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);
-
 		}
 
 		public async Task<ResponseEntity> InsertDistrict(DistrictViewModel model)

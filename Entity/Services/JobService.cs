@@ -91,7 +91,6 @@ namespace Entity.Services
 			using var transaction = _jobRepository.BeginTransaction();
 			try
 			{
-
 				var Job = await _jobRepository.GetSingleByIdAsync(c => c.Id == model.Id);
 				if (Job == null)
 				{

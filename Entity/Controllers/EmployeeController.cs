@@ -120,11 +120,6 @@ namespace Entity.Controllers
         public async Task<IActionResult> ExportToExcel(string keyWord = "")
         {
             var exportbytes = await _employeeService.DownloadReport(keyWord);
-            if (exportbytes.Length < 1)
-            {
-                TempData["Error"] = "Can't read data";
-                return RedirectToAction("");
-            }
             return File(exportbytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "employee.xlsx");
         }
 

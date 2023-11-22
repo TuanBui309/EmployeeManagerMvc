@@ -32,6 +32,7 @@ namespace Entity.Services.Utilities
             }
             return d;
         }
+
         public static DateTime ConvertStringToDate(string date="")
         {
             _ = new DateTime();
@@ -46,11 +47,13 @@ namespace Entity.Services.Utilities
             }
             return d;
         }
+
         public static string ConvertDateToString(DateTime date)
         {
             var dateString = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
             return dateString;
         }
+
         public static DateTime ConvertToTimeStamp(int unixTimeStamp)
         {
             // Unix timestamp is seconds past epoch
@@ -58,6 +61,7 @@ namespace Entity.Services.Utilities
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;
         }
+
         public static bool BeAValidDate(string DateOfBirth)
         {
             if (DateTime.TryParseExact(DateOfBirth,
@@ -70,6 +74,7 @@ namespace Entity.Services.Utilities
             }
             return false;
         }
+
         public static bool BeAValidDateOfExpiry(string DateOfExpiry)
         {
             if (!DateTime.TryParseExact(DateOfExpiry,
@@ -82,6 +87,5 @@ namespace Entity.Services.Utilities
             }
             return true;
         }
-
     }
 }

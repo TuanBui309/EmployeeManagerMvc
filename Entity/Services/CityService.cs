@@ -15,7 +15,6 @@ namespace Entity.Services
 		public CityService(ICityRepository cityRespository) : base()
 		{
 			_cityRepository = cityRespository;
-			
 		}
 
 		public async Task<ResponseEntity> GetAllCity()

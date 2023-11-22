@@ -79,7 +79,6 @@ namespace Entity.Services
                 WardName = ward.WardName,
             };
             return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);
-
         }
 
         public async Task<ResponseEntity> GetSingleWardById(int id)
@@ -119,6 +118,7 @@ namespace Entity.Services
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
             }
         }
+
         public async Task<ResponseEntity> UpdateWard(WardViewModel model)
         {
             using var transaction = _wardRepository.BeginTransaction();

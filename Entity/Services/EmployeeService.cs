@@ -111,6 +111,7 @@ namespace Entity.Services
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
             }
         }
+
         public async Task<ResponseEntity> InsertListtEmployee(EmployeeViewModel model)
         {
             try
@@ -184,7 +185,6 @@ namespace Entity.Services
                     _ = int.TryParse(workSheet.Cells[i, 9].Value.ToString(), out int cityId);
                     _ = int.TryParse(workSheet.Cells[i, 10].Value.ToString(), out int districtId);
                     _ = int.TryParse(workSheet.Cells[i, 11].Value.ToString(), out int wardId);
-
                     EmployeeViewModel employeeView = new()
                     {
                         Name = workSheet.Cells[i, 2].Value.ToString(),

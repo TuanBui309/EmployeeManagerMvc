@@ -65,6 +65,7 @@ namespace Entity.Services
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.MESSAGE_ERROR_404);
             }
         }
+
         public async Task<ResponseEntity> InsertNation(NationViewModel model)
         {
             using var transaction = _nationRepository.BeginTransaction();
@@ -84,6 +85,7 @@ namespace Entity.Services
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
             }
         }
+
         public async Task<ResponseEntity> UpdateNation(NationViewModel model)
         {
             using var transaction = _nationRepository.BeginTransaction();
