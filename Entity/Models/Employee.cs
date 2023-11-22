@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Name { get; set; } = "";
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }= DateTime.Now;
         public int? Age { get; set; } 
         public int? JobId { get; set; }
         public int? NationId { get; set; }

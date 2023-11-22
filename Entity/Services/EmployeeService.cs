@@ -43,7 +43,7 @@ namespace Entity.Services
             var exportBytes = _employeeRepository.ExporttoExcel<EmployeeViewExport>(entity, reportName);
             return exportBytes;
         }
-        public async Task<IEnumerable<EmployeeViewExport>> GetlistEmployee(string keyWord = "", int? pageNumber = null)
+        public async Task<IEnumerable<EmployeeViewExport>> GetListEmployee(string keyWord = "", int? pageNumber = null)
         {
             var employees = await _employeeRepository.GetAllEmployeeByKeyWord(keyWord, pageNumber);
             return employees;

@@ -16,7 +16,7 @@ namespace Entity.Services.Interface
         Task<byte[]> DownloadReport(string keyWord = "");
         List<EmployeeViewModel> ReadEmployeeFromExcel(string fullPath);
         //Task<IEnumerable<EmployeeViewExport>> GetlistEmployee(string keyWord = "");
-        Task<IEnumerable<EmployeeViewExport>> GetlistEmployee(string keyWord = "", int? pageNumber = null);
+        Task<IEnumerable<EmployeeViewExport>> GetListEmployee(string keyWord = "", int? pageNumber = null);
         //Task<PaginationSet<EmployeeViewExport>> GetlistEmployee(string keyWord = "", int pageNumber = 1, int pageSize = 5);
         Task<ResponseEntity> GetSingleEmployee(int id);
         Task<ResponseEntity> InsertListtEmployee(EmployeeViewModel model);
