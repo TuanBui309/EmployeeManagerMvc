@@ -1,7 +1,4 @@
-﻿using Entity.Services.Validation;
-using FluentValidation;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 namespace Entity.Models
 {
 	public class City

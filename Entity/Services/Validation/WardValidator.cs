@@ -8,7 +8,6 @@ namespace Entity.Services.Validation
         public WardValidator()
         {
             RuleFor(x => x.WardName).NotEmpty().WithMessage("Ward name is requied");
-
         }
     }
 }

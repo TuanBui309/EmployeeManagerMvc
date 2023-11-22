@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 
-
 namespace Entity.Services.Utilities
 {
     public class FuncUtilities
@@ -11,7 +10,7 @@ namespace Entity.Services.Utilities
         {
             _ = new DateTime();
             DateTime d;
-            if (date.Split('-').Count() > 1)
+            if (date.Split('-').Length > 1)
             {
                 if (!string.IsNullOrEmpty(date))
                 {

@@ -1,4 +1,5 @@
 ﻿namespace Entity.Services.ViewModels
+
 {
     public class WardViewModel
     {

@@ -1,16 +1,9 @@
-﻿using Entity.Models;
-using Entity.Repository.Repositories;
+﻿using Entity.Repository.Repositories;
 using Entity.Repository.Respositories;
 using Entity.Respository.Respositories;
 using Entity.Services.Utilities;
 using Entity.Services.ViewModels;
 using FluentValidation;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace Entity.Services.Validation
 {

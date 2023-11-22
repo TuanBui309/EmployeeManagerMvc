@@ -1,10 +1,8 @@
 ﻿using Entity.Constants;
 using Entity.Models;
-using Entity.Pagination;
 using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
-using System.Transactions;
 
 namespace Entity.Services
 {

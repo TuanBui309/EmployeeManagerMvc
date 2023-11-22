@@ -110,6 +110,7 @@ namespace Entity.Repository.Infranstructure
                           x.DistrictName.Trim().ToLower().Contains(keyWord.Trim().ToLower()) ||
                           x.WardName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToListAsync();
         }
+
         public async Task<IEnumerable<EmployeeViewExport>> GetAllEmployeeByKeyWord(string keyWord, int? pageNumber = null)
         {
             var employee = (from e in _toDoContext.Employees
@@ -138,7 +139,6 @@ namespace Entity.Repository.Infranstructure
                             x.DistrictName.Trim().ToLower().Contains(keyWord.Trim().ToLower()) ||
                             x.WardName.Trim().ToLower().Contains(keyWord.Trim().ToLower()));
             return await GetPagination.GetPage(employee, pageNumber);
-
         }
 
         public async Task<IEnumerable<DegreeView>> GetAllDegreeByKeyWord(string keyWord, int? pageNumber = null)
@@ -170,8 +170,7 @@ namespace Entity.Repository.Infranstructure
                                  DistictName = district.DistictName,
                              }).Where(x => x.DistictName.Trim().ToLower().Contains(keyWord.Trim().ToLower()) ||
                              x.CityName.Trim().ToLower().Contains(keyWord.Trim().ToLower()));
-            return await GetPagination.GetPage(districts, pageNumber);
-
+            return await GetPagination.GetPage(districts, pageNumber); 
         }
 
         public async Task<IEnumerable<WardViewModel>> GetAllWardByKeyWord(string keyWord, int? pageNumber)

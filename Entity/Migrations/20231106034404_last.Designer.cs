@@ -13,7 +13,7 @@ namespace Entity.Migrations
 {
     [DbContext(typeof(EntityDbContext))]
     [Migration("20231106034404_last")]
-    partial class last
+    partial class Last
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

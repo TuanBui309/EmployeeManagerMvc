@@ -1,7 +1,6 @@
 ﻿using Entity.Constants;
 using Entity.Models;
 using Entity.Repository.Repositories;
-using Entity.Respository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
 namespace Entity.Services

@@ -19,7 +19,7 @@ namespace Entity.Controllers
 
         public async Task<IActionResult> Index(int currentPage = 1)
         {
-            var result = await _cityService.GetListCity(currentPage);
+            var result = await _cityService.GetListCity(currentPage); 
             return View(result);
         }
 
@@ -43,7 +43,7 @@ namespace Entity.Controllers
             if (result.IsValid)
             {
                 var employee = await _cityService.InsertCity(city);
-                if (employee.StatusCode == 200)
+                if (employee.StatusCode == StatusCodeConstants.OK)
                 {
                     TempData["Success"] = employee.Message;
                     return RedirectToAction("");
@@ -78,13 +78,13 @@ namespace Entity.Controllers
             ValidationResult result = await _validator.ValidateAsync(model);
             if (result.IsValid)
             {
-                var employee = await _cityService.UpdateCity(id, model);
-                if (employee.StatusCode == 200)
+                var city = await _cityService.UpdateCity(id, model);
+                if (city.StatusCode == StatusCodeConstants.OK)
                 {
-                    TempData["Success"] = employee.Message;
+                    TempData["Success"] = city.Message;
                     return RedirectToAction("");
                 }
-                TempData["Error"] = employee.Message;
+                TempData["Error"] = city.Message;
                 return View();
             }
             else
@@ -112,7 +112,7 @@ namespace Entity.Controllers
         public async Task<IActionResult> DeleteConfirm(int id)
         {
             var result = await _cityService.DeleteCity(id);
-            if (result.StatusCode == 200)
+            if (result.StatusCode == StatusCodeConstants.OK)
             {
                 TempData["Success"] = result.Message;
                 return RedirectToAction("");
