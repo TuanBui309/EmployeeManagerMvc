@@ -8,7 +8,6 @@ using OfficeOpenXml;
 
 namespace Entity.Services
 {
-
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -187,8 +186,8 @@ namespace Entity.Services
                     _ = int.TryParse(workSheet.Cells[i, 11].Value.ToString(), out int wardId);
                     EmployeeViewModel employeeView = new()
                     {
-                        Name = workSheet.Cells[i, 2].Value.ToString(),
-                        DateOfBirth = workSheet.Cells[i, 3].Value.ToString(),
+                        Name = workSheet.Cells[i, 2].Value.ToString() ?? "",
+                        DateOfBirth = workSheet.Cells[i, 3].Value.ToString() ?? "",
                         Age = age,
                         JobId = jobId,
                         NationId = nationId,
