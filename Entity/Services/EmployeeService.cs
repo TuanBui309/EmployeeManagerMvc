@@ -39,7 +39,7 @@ namespace Entity.Services
         {
             var reportName = $"User_Wise_{Guid.NewGuid():N}.xlsx";
             var entity = await _employeeRepository.ExportData(keyWord);
-            var exportBytes = _employeeRepository.ExporttoExcel<EmployeeViewExport>(entity, reportName);
+            var exportBytes = _employeeRepository.ExportToExcel<EmployeeViewExport>(entity, reportName);
             return exportBytes;
         }
         public async Task<IEnumerable<EmployeeViewExport>> GetListEmployee(string keyWord = "", int? pageNumber = null)
@@ -191,6 +191,7 @@ namespace Entity.Services
                         Age = age,
                         JobId = jobId,
                         NationId = nationId,
+                        IdentityCardNumber = workSheet.Cells[i, 7].Value?.ToString(),
                         PhoneNumber = workSheet.Cells[i, 8]?.Value?.ToString(),
                         CityId = cityId,
                         DistrictId = districtId,

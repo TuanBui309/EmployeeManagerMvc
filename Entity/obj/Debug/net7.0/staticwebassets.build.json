@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VTaPAVri/pLZgCL3N9GQXydBVoV2sOUDfdLAruZfruM=",
+  "Hash": "tRwdsXrmcImMcFmouZI/Ax9dI8+J0MDoY/kd3J+UEh0=",
   "Source": "Entity",
   "BasePath": "_content/Entity",
   "Mode": "Default",
@@ -1173,6 +1173,23 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\employee (12).xlsx"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (2) (1).xlsx",
+      "SourceId": "Entity",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\",
+      "BasePath": "_content/Entity",
+      "RelativePath": "Uploads/employee (2) (1).xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\employee (2) (1).xlsx"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (2) (2).xlsx",
       "SourceId": "Entity",
       "SourceType": "Discovered",
@@ -1273,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\employee (8).xlsx"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (9).xlsx",
+      "SourceId": "Entity",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\",
+      "BasePath": "_content/Entity",
+      "RelativePath": "Uploads/employee (9).xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\employee (9).xlsx"
     },
     {
       "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee.xlsx",

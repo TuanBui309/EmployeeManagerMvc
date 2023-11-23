@@ -69,7 +69,7 @@ namespace Entity.Repository.Infranstructure
             return await _table.Where(match).ToListAsync();
         }
 
-        public byte[] ExporttoExcel<T1>(IEnumerable<T1> _table, string filename)
+        public byte[] ExportToExcel<T>(IEnumerable<T> _table, string filename)
         {
             using ExcelPackage pack = new();
             ExcelWorksheet ws = pack.Workbook.Worksheets.Add(filename);

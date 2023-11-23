@@ -16,7 +16,7 @@ namespace Entity.Repository.Interface
         Task<IEnumerable<DegreeView>> GetAllDegreeByKeyWord(string keyWord, int? pageNumber = null);
         Task<IEnumerable<DistrictView>> GetAllDistrictByKeyWord(string keyWord, int? pageNumber = null);
         Task<IEnumerable<WardViewModel>> GetAllWardByKeyWord(string keyWord, int? pageNumber = null);
-        byte[] ExporttoExcel<T>(IEnumerable<T> table, string filename);
+        byte[] ExportToExcel<T>(IEnumerable<T> table, string filename);
         IDbTransaction BeginTransaction();
     }
 }

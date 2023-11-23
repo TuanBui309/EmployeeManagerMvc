@@ -69,7 +69,7 @@ namespace Entity.Services
 			{
 				EmployeeId = degree.EmployeeId,
 				DegreeName = degree.DegreeName,
-				DateRange = FuncUtilities.ConvertDateToString(degree.DateRange),
+				DateRange = FuncUtilities.ConvertDateToString(degree.DateRange), 
 				IssuedBy = degree.IssuedBy,
 				DateOfExpiry = FuncUtilities.ConvertDateToString(degree.DateOfExpiry)
 
