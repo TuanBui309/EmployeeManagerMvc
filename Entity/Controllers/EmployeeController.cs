@@ -19,7 +19,7 @@ namespace Entity.Controllers
 
         public async Task<ActionResult> Index(string keyWord = "", int? pageNumber = null)
         {
-            var employees = await _employeeService.GetlistEmployee(keyWord, pageNumber);
+            var employees = await _employeeService.GetListEmployee(keyWord, pageNumber);
             return PartialView(employees);
         }
 

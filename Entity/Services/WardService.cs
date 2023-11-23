@@ -75,7 +75,7 @@ namespace Entity.Services
             {
                 Id = ward.Id,
                 DistrictId = ward.DistrictId,
-                DistrictName = _districtRespository.GetSingleByIdAsync(x => x.Id == ward.DistrictId).Result.DistictName,
+                DistrictName = _districtRespository.GetSingleByIdAsync(x => x.Id == ward.DistrictId).Result?.DistictName ?? "",
                 WardName = ward.WardName,
             };
             return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);

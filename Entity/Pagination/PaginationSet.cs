@@ -1,4 +1,6 @@
-﻿namespace Entity.Pagination
+﻿using Entity.Models;
+
+namespace Entity.Pagination
 {
     public class PaginationSet<T>
     {
@@ -14,7 +16,6 @@
         }
         public int? TotalPages { get; set; }
         public int? TotalCount { get; set; }
-        public IEnumerable<T>? Items { get; set; }
-
+        public IEnumerable<T> Items { get; set; } = Enumerable.Empty<T>();
     }
 }
