@@ -2,13 +2,12 @@
 
 namespace Entity.Services.Utilities
 {
-    public class FuncUtilities
+    public static class FuncUtilities
     {
         public static readonly string[] formatDate = new string[] { "dd/M/yyyy", "d/M/yyyy", "d/MM/yyyy", "dd/MM/yyy HH:mm:ss", "MM/dd/yyyy", "yyyy/MM/dd", "MM-dd-yyyy", "M-d-yyyy", "yyyy-MM-dd", "yyyy/M/d" };
        
         public static DateTime ConvertStringToDateTime(string date = "")
         {
-            _ = new DateTime();
             DateTime d;
             if (date.Split('-').Length > 1)
             {
@@ -35,7 +34,6 @@ namespace Entity.Services.Utilities
 
         public static DateTime ConvertStringToDate(string date="")
         {
-            _ = new DateTime();
             DateTime d;
             if (!string.IsNullOrEmpty(date))
             {
@@ -52,14 +50,6 @@ namespace Entity.Services.Utilities
         {
             var dateString = date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
             return dateString;
-        }
-
-        public static DateTime ConvertToTimeStamp(int unixTimeStamp)
-        {
-            // Unix timestamp is seconds past epoch
-            System.DateTime dtDateTime = new(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
-            return dtDateTime;
         }
 
         public static bool BeAValidDate(string DateOfBirth)

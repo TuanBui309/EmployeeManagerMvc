@@ -10,6 +10,7 @@ namespace Entity.Repository.Repositories
 
 	public class JobRepository : RepositoryBase<Job>, IJobRepository
 	{
+
 		public JobRepository(EntityDbContext entityDbContext) : base(entityDbContext)
 		{
 		}

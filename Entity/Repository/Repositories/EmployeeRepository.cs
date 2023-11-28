@@ -9,6 +9,7 @@ namespace Entity.Repository.Respositories
 	}
 	public class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
 	{
+
 		public EmployeeRepository(EntityDbContext entityDbContext) : base(entityDbContext)
 		{
 		}

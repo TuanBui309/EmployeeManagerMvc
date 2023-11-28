@@ -1,10 +1,12 @@
 ﻿using Entity.Constants;
 using Entity.Models;
+using Entity.Pagination;
 using Entity.Repository.Respositories;
 using Entity.Services.Interface;
 using Entity.Services.Utilities;
 using Entity.Services.ViewModels;
 using OfficeOpenXml;
+using System.Diagnostics;
 
 namespace Entity.Services
 {
@@ -48,16 +50,6 @@ namespace Entity.Services
             return employees;
         }
 
-        //public async Task<PaginationSet<EmployeeViewExport>> GetlistEmployee(string keyWord = "", int pageNumber = 1, int pageSize = 5)
-        //{
-        //	var employees = await _employeeRepository.GetAllEmployeeByKeyWord(keyWord);
-        //	PaginationSet<EmployeeViewExport> result = new PaginationSet<EmployeeViewExport>();
-        //	result.CurrentPage = pageNumber;
-        //	result.TotalPages = (int)(Math.Ceiling((double)employees.Count() / pageSize));
-        //	result.Items = employees.Skip((pageNumber - 1) * pageSize).Take(pageSize);
-        //	result.TotalCount = employees.Count();
-        //	return result;
-        //}
 
         public async Task<ResponseEntity> GetAllEmployee(string keyWord = "")
         {
@@ -170,24 +162,22 @@ namespace Entity.Services
 
         public List<EmployeeViewModel> ReadEmployeeFromExcel(string fullPath)
         {
-            try
-            {
                 using var package = new ExcelPackage(new FileInfo(fullPath));
                 var currentSheet = package.Workbook.Worksheets;
                 var workSheet = currentSheet.First();
                 List<EmployeeViewModel> listEmployee = new();
                 for (int i = workSheet.Dimension.Start.Row + 1; i <= workSheet.Dimension.End.Row; i++)
                 {
-                    _ = int.TryParse(workSheet.Cells[i, 4].Value.ToString(), out int age);
-                    _ = int.TryParse(workSheet.Cells[i, 5].Value.ToString(), out int jobId);
-                    _ = int.TryParse(workSheet.Cells[i, 6].Value.ToString(), out int nationId);
-                    _ = int.TryParse(workSheet.Cells[i, 9].Value.ToString(), out int cityId);
-                    _ = int.TryParse(workSheet.Cells[i, 10].Value.ToString(), out int districtId);
-                    _ = int.TryParse(workSheet.Cells[i, 11].Value.ToString(), out int wardId);
+                    _ = int.TryParse(workSheet.Cells[i, 4].Value?.ToString(), out int age);
+                    _ = int.TryParse(workSheet.Cells[i, 5].Value?.ToString(), out int jobId);
+                    _ = int.TryParse(workSheet.Cells[i, 6].Value?.ToString(), out int nationId);
+                    _ = int.TryParse(workSheet.Cells[i, 9].Value?.ToString(), out int cityId);
+                    _ = int.TryParse(workSheet.Cells[i, 10].Value?.ToString(), out int districtId);
+                    _ = int.TryParse(workSheet.Cells[i, 11].Value?.ToString(), out int wardId);
                     EmployeeViewModel employeeView = new()
                     {
-                        Name = workSheet.Cells[i, 2].Value.ToString() ?? "",
-                        DateOfBirth = workSheet.Cells[i, 3].Value.ToString() ?? "",
+                        Name = workSheet.Cells[i, 2].Value?.ToString() ?? "",
+                        DateOfBirth = workSheet.Cells[i, 3].Value?.ToString() ?? "",
                         Age = age,
                         JobId = jobId,
                         NationId = nationId,
@@ -200,11 +190,6 @@ namespace Entity.Services
                     listEmployee.Add(employeeView);
                 }
                 return listEmployee;
-            }
-            catch (Exception ex)
-            {
-                throw new(ex.Message);
-            }
         }
 
         public async Task<ResponseEntity> GetSingleEmployee(int id)
@@ -228,6 +213,16 @@ namespace Entity.Services
                 return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);
             }
             return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
+        }
+
+        public async Task<ResponseEntity> GetTime()
+        {
+            Stopwatch stopwatch = new();
+            stopwatch.Start();
+            await GetListEmployee();
+            stopwatch.Stop();
+            return new ResponseEntity(StatusCodeConstants.NOT_FOUND, stopwatch.Elapsed, MessageConstants.MESSAGE_ERROR_404);
+
         }
     }
 }

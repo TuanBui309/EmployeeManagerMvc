@@ -53,13 +53,13 @@ namespace Entity.Controllers
 
 		public async Task<IActionResult> Details(int id)
 		{
-			var result = await _wardService.GetSingleWard(id);
-			if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
+			var ward = await _wardService.GetSingleWard(id);
+			if (ward.StatusCode == StatusCodeConstants.NOT_FOUND)
 			{
 				TempData["Error"] = "Not found";
 				return RedirectToAction("");
 			}
-			return View(result.Content);
+			return View(ward.Content);
 		}
 
 		public async Task<IActionResult> Edit(int id)
@@ -96,17 +96,6 @@ namespace Entity.Controllers
 				}
 				return View(model);
 			}
-		}
-
-		public async Task<IActionResult> Delete(int id)
-		{
-			var result = await _wardService.GetSingleWard(id);
-			if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
-			{
-				TempData["Error"] = "Not found";
-				return RedirectToAction("");
-			}
-			return View(result.Content);
 		}
 
 		[HttpPost, ActionName("Delete")]

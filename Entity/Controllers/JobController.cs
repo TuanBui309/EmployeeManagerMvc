@@ -37,13 +37,13 @@ namespace Entity.Controllers
 
 		public async Task<IActionResult> Details(int id)
 		{
-			var result = await _jobService.GetSingleJob(id);
-			if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
+			var job = await _jobService.GetSingleJob(id);
+			if (job.StatusCode == StatusCodeConstants.NOT_FOUND)
 			{
 				TempData["Error"] = "Not found";
 				return RedirectToAction("");
 			}
-			return View(result.Content);
+			return View(job.Content);
 		}
 
 		public async Task<IActionResult> Edit(int id)
@@ -67,17 +67,6 @@ namespace Entity.Controllers
 				return RedirectToAction("");
 			}
 			TempData["Error"] = result.Message;
-			return View(result.Content);
-		}
-
-		public async Task<IActionResult> Delete(int id)
-		{
-			var result = await _jobService.GetSingleJob(id);
-			if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
-			{
-				TempData["Error"] = "Not found";
-				return RedirectToAction("");
-			}
 			return View(result.Content);
 		}
 

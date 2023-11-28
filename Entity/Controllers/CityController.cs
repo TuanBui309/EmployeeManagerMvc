@@ -17,21 +17,21 @@ namespace Entity.Controllers
             _validator = validator;
         }
 
-        public async Task<IActionResult> Index(int currentPage = 1)
+        public async Task<IActionResult> Index(String keyWord="",int? pageNumber=null)
         {
-            var result = await _cityService.GetListCity(currentPage); 
+            var result = await _cityService.GetListCity(keyWord,pageNumber); 
             return View(result);
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            var result = await _cityService.GetSingleCity(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
+            var city = await _cityService.GetSingleCity(id);
+            if (city.StatusCode == StatusCodeConstants.NOT_FOUND)
             {
                 TempData["Error"] = "Not found";
                 return RedirectToAction("");
             }
-            return View(result.Content);
+            return View(city.Content);
         }
 
         public IActionResult Create() => View();
@@ -95,17 +95,6 @@ namespace Entity.Controllers
                 }
                 return View(model);
             }
-        }
-
-        public async Task<IActionResult> Delete(int id)
-        {
-            var result = await _cityService.GetSingleCity(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
-            {
-                TempData["Error"] = "Not found";
-                return RedirectToAction("");
-            }
-            return View(result.Content);
         }
 
         [HttpPost, ActionName("Delete")]

@@ -64,13 +64,13 @@ namespace Entity.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            var result = await _degreeService.GetSingleDegree(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
+            var results = await _degreeService.GetSingleDegree(id);
+            if (results.StatusCode == StatusCodeConstants.NOT_FOUND)
             {
                 TempData["Error"] = "Not found";
                 return RedirectToAction("");
             }
-            return View(result.Content);
+            return View(results.Content);
         }
 
         [HttpPost]
@@ -97,17 +97,6 @@ namespace Entity.Controllers
                 }
                 return View(model);
             }
-        }
-
-        public async Task<IActionResult> Delete(int id)
-        {
-            var result = await _degreeService.GetSingleDegree(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
-            {
-                TempData["Error"] = "Not found";
-                return RedirectToAction("");
-            }
-            return View(result.Content);
         }
 
         [HttpPost, ActionName("Delete")]

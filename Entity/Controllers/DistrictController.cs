@@ -64,13 +64,13 @@ namespace Entity.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            var result = await _districtService.GetSingleDistrict(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
+            var results = await _districtService.GetSingleDistrict(id);
+            if (results.StatusCode == StatusCodeConstants.NOT_FOUND)
             {
                 TempData["Error"] = "Not found";
                 return RedirectToAction("");
             }
-            return View(result.Content);
+            return View(results.Content);
         }
 
         [HttpPost]
@@ -98,17 +98,6 @@ namespace Entity.Controllers
             }
         }
 
-        public async Task<IActionResult> Delete(int id)
-        {
-            var result = await _districtService.GetSingleDistrict(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
-            {
-                TempData["Error"] = "Not found";
-                return RedirectToAction("");
-            }
-            return View(result.Content);
-        }
-
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirm(int id)
         {
@@ -134,10 +123,5 @@ namespace Entity.Controllers
             return await _districtService.GetSingleDistirctById(id);
         }
 
-        [HttpGet("GetMultiDistrictByCondition")]
-        public async Task<IActionResult> GetMultiDistrictByCondition(int proviceId)
-        {
-            return await _districtService.GetMultiDistrictByCondition(proviceId);
-        }
     }
 }

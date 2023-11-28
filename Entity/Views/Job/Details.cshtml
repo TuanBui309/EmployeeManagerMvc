@@ -34,9 +34,13 @@
                 @Model.JobName
             </td>
             <td>
-                
+                <form asp-action="Delete" asp-controller="Job">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" name="Id" id="id" value="Delete" class="btn btn-danger" /> |
+                    <a asp-action="Index">Back to List</a>
+                </form>
             </td>
         </tr>
-        
+
     </tbody>
 </table>

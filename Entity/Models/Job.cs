@@ -5,6 +5,7 @@ namespace Entity.Models
     {
         [Key]
         public int Id { get; set; }
+
         public string JobName { get; set; } = "";
 
     }

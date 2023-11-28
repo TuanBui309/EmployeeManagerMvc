@@ -10,6 +10,7 @@ namespace Entity.Repository.Repositories
 
 	public class NationRepositoty : RepositoryBase<Nation>, INationRepository
 	{
+
 		public NationRepositoty(EntityDbContext entityDbContext) 
 			: base(entityDbContext)
 		{

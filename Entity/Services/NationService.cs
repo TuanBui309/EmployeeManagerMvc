@@ -18,13 +18,13 @@ namespace Entity.Services
         {
             try
             {
-                var Nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == id);
-                if (Nation == null)
+                var nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == id);
+                if (nation == null)
                 {
                     return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
                 }
-                await _nationRepository.DeleteAsync(Nation);
-                return new ResponseEntity(StatusCodeConstants.OK, Nation, MessageConstants.DELETE_SUCCESS);
+                await _nationRepository.DeleteAsync(nation);
+                return new ResponseEntity(StatusCodeConstants.OK, nation, MessageConstants.DELETE_SUCCESS);
             }
             catch (Exception ex)
             {
@@ -34,8 +34,8 @@ namespace Entity.Services
 
         public async Task<ResponseEntity> GetAllNation()
         {
-            var Nations = await _nationRepository.GetAllAsync();
-            return new ResponseEntity(StatusCodeConstants.OK, Nations, MessageConstants.MESSAGE_SUCCESS_200);
+            var nations = await _nationRepository.GetAllAsync();
+            return new ResponseEntity(StatusCodeConstants.OK, nations, MessageConstants.MESSAGE_SUCCESS_200);
         }
 
         public async Task<ResponseEntity> GetSingleNation(int id)
@@ -53,12 +53,12 @@ namespace Entity.Services
         {
             try
             {
-                var Nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == id);
-                if (Nation == null)
+                var nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == id);
+                if (nation == null)
                 {
                     return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
                 }
-                return new ResponseEntity(StatusCodeConstants.OK, Nation, MessageConstants.MESSAGE_SUCCESS_200);
+                return new ResponseEntity(StatusCodeConstants.OK, nation, MessageConstants.MESSAGE_SUCCESS_200);
             }
             catch (Exception ex)
             {
@@ -71,13 +71,13 @@ namespace Entity.Services
             using var transaction = _nationRepository.BeginTransaction();
             try
             {
-                Nation Nations = new()
+                Nation nations = new()
                 {
                     NationName = model.NationName
                 };
-                await _nationRepository.InsertAsync(Nations);
+                await _nationRepository.InsertAsync(nations);
                 transaction.Commit();
-                return new ResponseEntity(StatusCodeConstants.OK, Nations, MessageConstants.INSERT_SUCCESS);
+                return new ResponseEntity(StatusCodeConstants.OK, nations, MessageConstants.INSERT_SUCCESS);
             }
             catch (Exception ex)
             {
@@ -91,14 +91,14 @@ namespace Entity.Services
             using var transaction = _nationRepository.BeginTransaction();
             try
             {
-                var Nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == model.Id);
-                if (Nation == null)
+                var nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == model.Id);
+                if (nation == null)
                 {
                     return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
                 }
-                Nation.Id = model.Id;
-                Nation.NationName = model.NationName;
-                await _nationRepository.UpdateAsync(Nation, Nation);
+				nation.Id = model.Id;
+				nation.NationName = model.NationName;
+                await _nationRepository.UpdateAsync(nation, nation);
                 transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
             }

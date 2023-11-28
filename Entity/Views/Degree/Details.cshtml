@@ -27,26 +27,34 @@
 			<th>Ngày Đăng Kí</th>
 			<th>Đăng Kí Bởi</th>
 			<th>Ngày Hết Hạn</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
-			<tr>
-				<td>
-					@Model.EmployeeId
-				</td>
-				<td>
-					@Model.DegreeName
-				</td>
-				<td>
-					@Model.DateRange
-				</td>
-				<td>
+		<tr>
+			<td>
+				@Model.EmployeeId
+			</td>
+			<td>
+				@Model.DegreeName
+			</td>
+			<td>
+				@Model.DateRange
+			</td>
+			<td>
 				@Model.IssuedBy
-				</td>
-				<td>
-					@Model.DateOfExpiry
-				</td>
-			</tr>
-		
+			</td>
+			<td>
+				@Model.DateOfExpiry
+			</td>
+			<td>
+				<form asp-action="Delete" asp-controller="Degree">
+					<input type="hidden" asp-for="Id" />
+					<input type="submit" name="id" value="Delete" class="btn btn-danger" /> |
+					<a asp-action="Index">Back to List</a>
+				</form>
+			</td>
+		</tr>
+
 	</tbody>
 </table>

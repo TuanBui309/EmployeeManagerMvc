@@ -53,19 +53,6 @@ namespace Entity.Services
 			return districts;
 		}
 
-		public async Task<ResponseEntity> GetMultiDistrictByCondition(int cityId)
-		{
-			try
-			{
-				var districts = await _districtRepository.GetMultiBycondition(c => c.CityId == cityId);
-				return new ResponseEntity(StatusCodeConstants.OK, districts, MessageConstants.MESSAGE_SUCCESS_200);
-			}
-			catch (Exception ex)
-			{
-				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.MESSAGE_ERROR_404);
-			}
-		}
-
 		public async Task<ResponseEntity> GetSingleDistirctById(int id)
 		{
 			var district = await _districtRepository.GetSingleByIdAsync(d => d.Id == id);

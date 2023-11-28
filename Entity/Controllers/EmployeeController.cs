@@ -5,6 +5,8 @@ using Entity.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Entity.Services.ViewModels;
 using System.Text;
+using System.Diagnostics;
+
 namespace Entity.Controllers
 {
     public class EmployeeController : Controller
@@ -36,13 +38,35 @@ namespace Entity.Controllers
 
         public async Task<ActionResult> Edit(int id)
         {
-            var employee = await _employeeService.GetSingleEmployee(id);
-            if (employee.StatusCode == StatusCodeConstants.NOT_FOUND)
+            var result = await _employeeService.GetSingleEmployee(id);
+            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
             {
                 TempData["Error"] = "Not Found";
                 return RedirectToAction("");
             }
-            return View(employee.Content);
+            return View(result.Content);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EmployeeViewModel model)
+        {
+            ValidationResult result = await _validator.ValidateAsync(model);
+            if (result.IsValid)
+            {
+                var employee = await _employeeService.UpdateEmployee(model);
+                if (employee.StatusCode == StatusCodeConstants.OK)
+                {
+                    TempData["Success"] = employee.Message;
+                    return RedirectToAction("");
+                }
+                TempData["Error"] = employee.Message;
+                return View(model);
+            }
+            foreach (var fail in result.Errors)
+            {
+                ModelState.AddModelError(fail.PropertyName, fail.ErrorMessage);
+            }
+            return View(model);
         }
 
         public IActionResult Create() => View();
@@ -68,39 +92,6 @@ namespace Entity.Controllers
                 ModelState.AddModelError(fail.PropertyName, fail.ErrorMessage);
             }
             return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(EmployeeViewModel model)
-        {
-            ValidationResult result = await _validator.ValidateAsync(model);
-            if (result.IsValid)
-            {
-                var employee = await _employeeService.UpdateEmployee(model);
-                if (employee.StatusCode == StatusCodeConstants.OK)
-                {
-                    TempData["Success"] = employee.Message;
-                    return RedirectToAction("");
-                }
-                TempData["Error"] = employee.Message;
-                return View(model);
-            }
-            foreach (var fail in result.Errors)
-            {
-                ModelState.AddModelError(fail.PropertyName, fail.ErrorMessage);
-            }
-            return View(model);
-        }
-
-        public async Task<ActionResult> Delete(int id)
-        {
-            var employee = await _employeeService.GetEmployeeById(id);
-            if (employee.StatusCode == StatusCodeConstants.NOT_FOUND)
-            {
-                TempData["Error"] = "Not Found";
-                return RedirectToAction("");
-            }
-            return View(employee.Content);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -164,7 +155,6 @@ namespace Entity.Controllers
                             }
                         }
                     }
-                    //return new ResponseEntity(StatusCodeConstants.OK, "Added all data from the file successfully", MessageConstants.INSERT_SUCCESS);
                     TempData["Success"] = "Added data from the file successfully";
                     return RedirectToAction("");
                 }
@@ -182,6 +172,20 @@ namespace Entity.Controllers
         public async Task<IActionResult> GetAllEmployee(string keyWord = "")
         {
             return await _employeeService.GetAllEmployee(keyWord);
+        }
+
+
+        [HttpGet("GetTime")]
+        public async Task<IActionResult> GetTime()
+        {
+            Stopwatch stopwatch = new();
+            stopwatch.Start();
+
+            await Index();
+
+
+            stopwatch.Stop();
+            return new ResponseEntity(StatusCodeConstants.NOT_FOUND, stopwatch.Elapsed, MessageConstants.MESSAGE_ERROR_404);
         }
 
         [HttpGet("GetEmployeeById")]

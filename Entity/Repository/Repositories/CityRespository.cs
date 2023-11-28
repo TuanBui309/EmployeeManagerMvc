@@ -10,6 +10,7 @@ namespace Entity.Respository.Respositories
     public interface ICityRepository : IRepository<City>
     {
     }
+
     public class CityRepository : RepositoryBase<City>, ICityRepository
     {
         public CityRepository(EntityDbContext enityDbContext)

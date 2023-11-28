@@ -12,6 +12,7 @@ namespace Entity.Repository.Repositories
 
     public class DegreeRepository : RepositoryBase<Degree>, IDegreeRepository
     {
+
         public DegreeRepository(EntityDbContext entityDbContext) : base(entityDbContext)
         {
         }

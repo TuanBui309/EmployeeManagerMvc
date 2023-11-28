@@ -10,6 +10,7 @@ namespace Entity.Respository.Respositories
 
 	public class WardRespository : RepositoryBase<Ward>, IWardRepository
 	{
+
 		public WardRespository(EntityDbContext entityDbContext) : base(entityDbContext)
 		{
 		}

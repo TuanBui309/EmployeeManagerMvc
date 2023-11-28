@@ -31,7 +31,6 @@ namespace Entity.Data_Access
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("fk_provice_id");
-                ;
             });
             modelBuilder.Entity<Ward>(entity =>
             {

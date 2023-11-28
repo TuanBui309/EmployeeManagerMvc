@@ -9,6 +9,7 @@ namespace Entity.Respository.Respositories
 	}
 	public class DistrictRepository : RepositoryBase<District>, IDistrictRespository
 	{
+
 		public DistrictRepository(EntityDbContext enityDbContext)
 			: base(enityDbContext)
 		{

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tRwdsXrmcImMcFmouZI/Ax9dI8+J0MDoY/kd3J+UEh0=",
+  "Hash": "ZIxSmNLK5Hr8Hb1mMGdR7YrAmuj3EzqzGWB8lKBhPJA=",
   "Source": "Entity",
   "BasePath": "_content/Entity",
   "Mode": "Default",
@@ -1171,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\employee (12).xlsx"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (13).xlsx",
+      "SourceId": "Entity",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\",
+      "BasePath": "_content/Entity",
+      "RelativePath": "Uploads/employee (13).xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\employee (13).xlsx"
     },
     {
       "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (2) (1).xlsx",

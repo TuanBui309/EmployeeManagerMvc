@@ -38,13 +38,13 @@ namespace Entity.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var result = await _nationService.GetSingleNation(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
+            var nation = await _nationService.GetSingleNation(id);
+            if (nation.StatusCode == StatusCodeConstants.NOT_FOUND)
             {
                 TempData["Error"] = "Not found";
                 return RedirectToAction("");
             }
-            return View(result.Content);
+            return View(nation.Content);
         }
 
         public async Task<IActionResult> Edit(int id)
@@ -71,17 +71,6 @@ namespace Entity.Controllers
             return View(result.Content);
         }
         
-        public async Task<IActionResult> Delete(int id)
-        {
-            var result = await _nationService.GetSingleNation(id);
-            if (result.StatusCode == StatusCodeConstants.NOT_FOUND)
-            {
-                TempData["Error"] = "Not found";
-                return RedirectToAction("");
-            }
-            return View(result.Content);
-        }
-
         [HttpPost,ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirm(int id)
         {

@@ -44,10 +44,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/City/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,10 +58,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVncmVlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Degree/Details.cshtml]
@@ -84,10 +76,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/District/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpY3RcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,10 +90,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Employee/Details.cshtml]
@@ -136,10 +120,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Job/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,10 +134,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF0aW9uXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Nation/Details.cshtml]
@@ -182,10 +158,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FyZFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Documents/EmployeeManagerMvc/Entity/Views/Ward/Details.cshtml]
