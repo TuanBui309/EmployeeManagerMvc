@@ -73,6 +73,18 @@ namespace Entity.Services
 			};
 			return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);
 		}
+		public async Task<ResponseEntity> GetMultiDistrictByCondition(int cityId)
+		{
+			try
+			{
+				var districts = await _districtRepository.GetMultiBycondition(c => c.CityId == cityId);
+				return new ResponseEntity(StatusCodeConstants.OK, districts, MessageConstants.MESSAGE_SUCCESS_200);
+			}
+			catch (Exception ex)
+			{
+				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.MESSAGE_ERROR_404);
+			}
+		}
 
 		public async Task<ResponseEntity> InsertDistrict(DistrictViewModel model)
 		{

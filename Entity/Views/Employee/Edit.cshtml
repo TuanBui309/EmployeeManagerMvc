@@ -65,10 +65,11 @@
         <div class="row">
             <p class="box">8.Địa Chỉ:</p>
             <div class="col-3 box">
-                <label for="city">Quận/Huyện:</label>
+                <label for="city">Tỉnh/Thành Phố:</label>
                 <select asp-for="CityId"
                         class="form-select"
-                        id="city"></select>
+                        id="city">
+                    <option id="cityName"></option></select>
                 <span asp-validation-for="CityId" class="text-danger"></span>
             </div>
             <div class=" col-3 box">
@@ -93,3 +94,99 @@
         <button class="btn btn-primary" type="submit">Luu</button>
     </div>
 </form>
+
+<script>
+    $(document).ready(function () {
+        var selectCity = $("#city");
+        var selectWard = $("#ward");
+        var selectDistrict = $("#district");
+        var selectJob = $("#job");
+        var selectNation = $("#nation");
+        function fnCity() {
+            $.ajax({
+                url: `/GetCityById?CityId=${@Model.CityId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#cityName").val(data.content.id)
+                    $("#cityName").text(data.content.cityName)
+                    selectCity.change(function () {
+                        selectDistrict.empty();
+                        selectWard.empty(); 
+                    })
+                    console.log(data.content);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            })
+        }
+        function fnDistrict() {
+            selectDistrict.empty();
+            $.ajax({
+                url: `/GetSingleDistrictById?id=${@Model.DistrictId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectDistrict.append(`<option value="${data.content.id}">${data.content.distictName}</option>`);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            });
+        }
+        function fnWard() {
+            selectWard.empty();
+            $.ajax({
+                url: `/GetSingleWardById?id=${@Model.WardId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectWard.append(`<option value="${data.content.id}">${data.content.wardName}</option>`);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            });
+        }
+        function fnJob() {
+            $.ajax({
+                url: `/GetJobById?id=${@Model.JobId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectJob.append(`<option value="${data.content.id}">${data.content.jobName}</option>`);
+                    console.log(data.content);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            });
+        }
+        function fnNation() {
+            $.ajax({
+                url: `/GetNationById?id=${@Model.NationId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectNation.append(`<option value="${data.content.id}">${data.content.nationName}</option>`);
+                    console.log(data.content);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            });
+        }
+        fnCity();
+        fnJob();
+        fnDistrict()
+        fnNation();
+        fnWard();
+    });
+
+</script>

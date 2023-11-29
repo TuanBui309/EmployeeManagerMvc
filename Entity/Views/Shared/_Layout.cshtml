@@ -44,17 +44,20 @@
         var selectNation = $("#nation");
         var selectDegree = $("#employeeId")
         function fnListCity() {
+            selectDistrict.empty();
             $.ajax({
                 url: "/GetAllCity",
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    selectCity.append(`<option value="0">-- Chọn Thành Phố --</option>`);
+                    // selectCity.append(`<option value="0">-- Chọn Thành Phố --</option>`);
                     $.each(data.content, function (index, item) {
                         selectCity.append(`<option value="${item.id}">${item.cityName}</option>`);
                     });
                     selectCity.change(function () {
                         fnListDistrict($(this).val())
+                        selectDistrict.empty();
+                        selectWard.empty();
                     })
                     console.log(data.content);
                 },
@@ -77,7 +80,11 @@
                     });
                     selectDistrict.change(function () {
                         fnListWard($(this).val())
+                        selectWard.empty();
+                        data.empty();
+
                     })
+                    console.log("district",data.content)
                 },
                 error: function (xhr, status, error) {
                     // Xử lý lỗi nếu có
@@ -85,6 +92,7 @@
                 }
             });
         }
+      
         function fnListWard(id) {
             selectWard.empty();
             $.ajax({
@@ -96,6 +104,7 @@
                     $.each(data.content, function (index, item) {
                         selectWard.append(`<option value="${item.id}">${item.wardName}</option>`);
                     });
+                    console.log("ward", data.content);
                 },
                 error: function (xhr, status, error) {
                     // Xử lý lỗi nếu có
@@ -109,7 +118,7 @@
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    selectJob.append(`<option value="0">-- Chọn Job --</option>`);
+                    // selectJob.append(`<option value="0">-- Chọn Job --</option>`);
                     $.each(data.content, function (index, item) {
                         selectJob.append(`<option value="${item.id}">${item.jobName}</option>`);
                     });
@@ -127,7 +136,6 @@
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    selectNation.append(`<option value="0">-- Chọn Nation --</option>`);
                     $.each(data.content, function (index, item) {
                         selectNation.append(`<option value="${item.id}">${item.nationName}</option>`);
                     });
@@ -157,28 +165,9 @@
                 }
             });
         }
-        function fnDistrict() {
-            $.ajax({
-                url: "/GetAllDistrict",
-                method: "GET",
-                dataType: "json",
-                success: function (data) {
-                    $("#districtId").append(`<option value="0">-- Chọn Quận/Huyện --</option>`);
-                    $.each(data.content, function (index, item) {
-                        $("#districtId").append(`<option value="${item.id}">${item.distictName}</option>`);
-                    });
-                    console.log(data.content);
-                },
-                error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
-                    console.log("Error:", error);
-                }
-            });
-        }
         fnListDegree();
         fnListJob();
         fnListCity();
-        fnDistrict()
         fnListNation();
     });
     function setInputValue(input, checkbox) {
@@ -201,3 +190,4 @@
         }
     }
 </script>
+

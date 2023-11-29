@@ -122,6 +122,10 @@ namespace Entity.Controllers
         {
             return await _districtService.GetSingleDistirctById(id);
         }
-
-    }
+		[HttpGet("GetMultiDistrictByCondition")]
+		public async Task<IActionResult> GetMultiDistrictByCondition(int proviceId)
+		{
+			return await _districtService.GetMultiDistrictByCondition(proviceId);
+		}
+	}
 }

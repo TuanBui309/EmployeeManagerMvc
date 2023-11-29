@@ -13,7 +13,9 @@ namespace Entity.Services.Interface
         Task<ResponseEntity> DeleteDistrict(int id);
         Task<ResponseEntity> GetSingleDistrict(int id);
         Task<IEnumerable<DistrictView>> GetListDistrict(string keyWord = "", int? pageNumber = null);
-    
+        Task<ResponseEntity> GetMultiDistrictByCondition(int cityId);
 
-    }
+
+
+	}
 }

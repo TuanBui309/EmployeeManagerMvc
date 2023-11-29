@@ -29,7 +29,9 @@
                     <select asp-for="NationId"
                             class="form-select"
                             style="font-size: 12px"
-                            id="nation"></select>
+                            id="nation">
+                        <option value="0">-- Chọn Nation --</option>
+                    </select>
                     <span asp-validation-for="NationId" class="text-danger"></span>
                 </div>
             </div>
@@ -39,7 +41,9 @@
                 <label for="job">5.Nghề Nghiệp:</label>
                 <select asp-for="JobId"
                         class="form-select"
-                        id="job"></select>
+                        id="job">
+                    <option value="0">-- Chọn Job --</option>
+                </select>
                 <span asp-validation-for="JobId" class="text-danger"></span>
             </div>
             <div class=" col-3 box">
@@ -68,6 +72,7 @@
                 <select asp-for="CityId"
                         class="form-select"
                         id="city">
+                    <option  value="0">-- Chọn Thành Phố --</option>
                 </select>
                 <span asp-validation-for="CityId" class="text-danger"></span>
             </div>

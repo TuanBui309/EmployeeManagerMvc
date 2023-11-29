@@ -180,10 +180,7 @@ namespace Entity.Controllers
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
-
             await Index();
-
-
             stopwatch.Stop();
             return new ResponseEntity(StatusCodeConstants.NOT_FOUND, stopwatch.Elapsed, MessageConstants.MESSAGE_ERROR_404);
         }

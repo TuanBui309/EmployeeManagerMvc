@@ -7,7 +7,6 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Storage;
 using Entity.Services.ViewModels;
 using Entity.Services.Utilities;
-using Entity.Pagination;
 using X.PagedList;
 using Entity.Models;
 
@@ -132,8 +131,6 @@ namespace Entity.Repository.Infranstructure
                           x.CityName.Trim().ToLower().Contains(keyWord.Trim().ToLower()) ||
                           x.DistrictName.Trim().ToLower().Contains(keyWord.Trim().ToLower()) ||
                           x.WardName.Trim().ToLower().Contains(keyWord.Trim().ToLower())).ToPagedListAsync(pageNumber ?? currentPage, pageSize);
-
-
         }
 
         public async Task<IEnumerable<DegreeView>> GetAllDegreeByKeyWord(string keyWord, int? pageNumber = null, int currentPage = 1, int pageSize = 5)

@@ -50,7 +50,6 @@ namespace Entity.Services
             return employees;
         }
 
-
         public async Task<ResponseEntity> GetAllEmployee(string keyWord = "")
         {
             var employees = await _employeeRepository.ExportData(keyWord);
@@ -71,7 +70,7 @@ namespace Entity.Services
             catch (Exception ex)
             {
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.DELETE_ERROR);
-            }
+            } 
         }
 
         public async Task<ResponseEntity> InsertEmployee(EmployeeViewModel model)
