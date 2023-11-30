@@ -11,7 +11,7 @@ namespace Entity.Services
 	{
 		private readonly IDistrictRespository _districtRepository;
 		
-		public DistrictService(IDistrictRespository districtRespository) : base()
+		public DistrictService(IDistrictRespository districtRespository) 
 		{
 			_districtRepository = districtRespository;
 		}
