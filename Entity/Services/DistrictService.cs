@@ -106,7 +106,6 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> UpdateDistrict(DistrictViewModel model)
 		{
-			using var transaction = _districtRepository.BeginTransaction();
 			try
 			{
 				var district = await _districtRepository.GetSingleByIdAsync(d => d.Id == model.Id);
@@ -117,12 +116,10 @@ namespace Entity.Services
 				district.CityId = model.CityId;
 				district.DistictName = model.DistictName;
 				await _districtRepository.UpdateAsync(district, district);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, district, MessageConstants.UPDATE_SUCCESS);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.UPDATE_ERROR);
 			}
 		}

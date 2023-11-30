@@ -143,7 +143,7 @@ namespace Entity.Controllers
                             ValidationResult result = await _validator.ValidateAsync(excelData[i]);
                             if (result.IsValid)
                             {
-                                await _employeeService.InsertListtEmployee(excelData[i]);
+                                await _employeeService.InsertEmployee(excelData[i]);
                                 TempData["Success"] = $"Added {i + 1} item";
                             }
                             else
