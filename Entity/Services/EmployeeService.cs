@@ -74,35 +74,6 @@ namespace Entity.Services
 
         public async Task<ResponseEntity> InsertEmployee(EmployeeViewModel model)
         {
-            using var transaction = _employeeRepository.BeginTransaction();
-            try
-            {
-                Employee employee = new()
-                {
-                    Name = model.Name,
-                    DateOfBirth = FuncUtilities.ConvertStringToDate(model.DateOfBirth),
-                    Age = model.Age,
-                    JobId = model.JobId,
-                    NationId = model.NationId,
-                    PhoneNumber = model.PhoneNumber,
-                    IdentityCardNumber = model.IdentityCardNumber,
-                    CityId = model.CityId,
-                    DistrictId = model.DistrictId,
-                    WardId = model.WardId
-                };
-                employee = await _employeeRepository.InsertAsync(employee);
-                transaction.Commit();
-                return new ResponseEntity(StatusCodeConstants.OK, employee, MessageConstants.INSERT_SUCCESS);
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
-            }
-        }
-
-        public async Task<ResponseEntity> InsertListtEmployee(EmployeeViewModel model)
-        {
             try
             {
                 Employee employee = new()
@@ -129,7 +100,6 @@ namespace Entity.Services
 
         public async Task<ResponseEntity> UpdateEmployee(EmployeeViewModel model)
         {
-            using var transaction = _employeeRepository.BeginTransaction();
             try
             {
                 var employee = await _employeeRepository.GetSingleByIdAsync(c => c.Id == model.Id);
@@ -148,12 +118,10 @@ namespace Entity.Services
                 employee.DistrictId = model.DistrictId;
                 employee.WardId = model.WardId;
                 await _employeeRepository.UpdateAsync(employee, employee);
-                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, employee, MessageConstants.UPDATE_SUCCESS);
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
             }
         }

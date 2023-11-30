@@ -17,7 +17,6 @@ namespace Entity.Services.Interface
 		List<EmployeeViewModel> ReadEmployeeFromExcel(string fullPath);
 		Task<IEnumerable<EmployeeViewExport>> GetListEmployee(string keyWord = "", int? pageNumber = null);
 		Task<ResponseEntity> GetSingleEmployee(int id);
-		Task<ResponseEntity> InsertListtEmployee(EmployeeViewModel model);
 		Task<ResponseEntity> GetTime();
 	}
 }

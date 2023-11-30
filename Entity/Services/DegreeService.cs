@@ -79,7 +79,6 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> InsertDegree(DegreeViewModel model)
 		{
-			using var transaction = _degreeRepository.BeginTransaction();
 			try
 			{
                 Degree degrees = new()
@@ -91,19 +90,16 @@ namespace Entity.Services
                     DateOfExpiry = FuncUtilities.ConvertStringToDate(model.DateOfExpiry)
                 };
                 await _degreeRepository.InsertAsync(degrees);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, degrees, MessageConstants.INSERT_SUCCESS);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
 			}
 		}
 
 		public async Task<ResponseEntity> UpdateDegree(DegreeViewModel model)
 		{
-			using var transaction = _degreeRepository.BeginTransaction();
 			try
 			{
 				var degree = await _degreeRepository.GetSingleByIdAsync(x => x.Id == model.Id);
@@ -117,12 +113,10 @@ namespace Entity.Services
 				degree.IssuedBy = model.IssuedBy;
 				degree.DateOfExpiry = FuncUtilities.ConvertStringToDate(model.DateOfExpiry);
 				await _degreeRepository.UpdateAsync(degree, degree);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, degree, MessageConstants.UPDATE_SUCCESS);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.UPDATE_ERROR);
 			}
 		}

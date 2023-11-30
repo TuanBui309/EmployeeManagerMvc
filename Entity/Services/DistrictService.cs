@@ -88,7 +88,6 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> InsertDistrict(DistrictViewModel model)
 		{
-			using var transaction = _districtRepository.BeginTransaction();
 			try
 			{
                 District districts = new()
@@ -97,12 +96,10 @@ namespace Entity.Services
                     DistictName = model.DistictName
                 };
                 await _districtRepository.InsertAsync(districts);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, districts, MessageConstants.INSERT_SUCCESS);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
 			}
 		}

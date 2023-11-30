@@ -68,7 +68,6 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> InsertJob(JobViewModel model)
 		{
-			using var transaction = _jobRepository.BeginTransaction();
 			try
 			{
                 Job jobs = new()
@@ -76,19 +75,16 @@ namespace Entity.Services
                     JobName = model.JobName
                 };
                 await _jobRepository.InsertAsync(jobs);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, jobs, MessageConstants.INSERT_SUCCESS);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
 			}
 		}
 
 		public async Task<ResponseEntity> UpdateJob(JobViewModel model)
 		{
-			using var transaction = _jobRepository.BeginTransaction();
 			try
 			{
 				var job = await _jobRepository.GetSingleByIdAsync(c => c.Id == model.Id);
@@ -99,12 +95,10 @@ namespace Entity.Services
 				job.Id = model.Id;
 				job.JobName = model.JobName;
 				await _jobRepository.UpdateAsync(job, job);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.UPDATE_ERROR);
 			}
 		}

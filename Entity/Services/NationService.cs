@@ -69,7 +69,6 @@ namespace Entity.Services
 
         public async Task<ResponseEntity> InsertNation(NationViewModel model)
         {
-            using var transaction = _nationRepository.BeginTransaction();
             try
             {
                 Nation nations = new()
@@ -77,19 +76,16 @@ namespace Entity.Services
                     NationName = model.NationName
                 };
                 await _nationRepository.InsertAsync(nations);
-                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, nations, MessageConstants.INSERT_SUCCESS);
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
             }
         }
 
         public async Task<ResponseEntity> UpdateNation(NationViewModel model)
         {
-            using var transaction = _nationRepository.BeginTransaction();
             try
             {
                 var nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == model.Id);
@@ -100,12 +96,10 @@ namespace Entity.Services
                 nation.Id = model.Id;
                 nation.NationName = model.NationName;
                 await _nationRepository.UpdateAsync(nation, nation);
-                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.UPDATE_ERROR);
             }
         }

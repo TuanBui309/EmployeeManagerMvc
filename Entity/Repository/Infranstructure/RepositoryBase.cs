@@ -70,11 +70,6 @@ namespace Entity.Repository.Infranstructure
             return pack.GetAsByteArray();
         }
 
-        public System.Data.IDbTransaction BeginTransaction()
-        {
-            var transaction = _toDoContext.Database.BeginTransaction();
-            return transaction.GetDbTransaction();
-        }
         public async Task<IEnumerable<EmployeeViewExport>> ExportData(string keyWord)
         {
             return await (from e in _toDoContext.Employees

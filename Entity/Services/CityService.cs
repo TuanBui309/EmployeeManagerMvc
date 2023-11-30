@@ -35,7 +35,7 @@ namespace Entity.Services
 
         public async Task<ResponseEntity> InsertCity(CityViewModel model)
         {
-            using var transaction = _cityRepository.BeginTransaction();
+            
             try
             {
                 City Cities = new()
@@ -43,19 +43,16 @@ namespace Entity.Services
                     CityName = model.CityName
                 };
                 await _cityRepository.InsertAsync(Cities);
-                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, Cities, MessageConstants.MESSAGE_SUCCESS_200);
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
             }
         }
 
         public async Task<ResponseEntity> UpdateCity(int id, CityViewModel model)
         {
-            using var transaction = _cityRepository.BeginTransaction();
             try
             {
                 var singleCity = await _cityRepository.GetSingleByIdAsync(c => c.Id == id);
@@ -65,12 +62,10 @@ namespace Entity.Services
                 }
                 singleCity.CityName = model.CityName;
                 await _cityRepository.UpdateAsync(singleCity, singleCity);
-                transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
                 return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.UPDATE_ERROR);
             }
         }

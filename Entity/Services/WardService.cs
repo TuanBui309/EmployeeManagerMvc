@@ -100,7 +100,6 @@ namespace Entity.Services
 
 		public async Task<ResponseEntity> InsertWard(WardViewModel model)
 		{
-			using var transaction = _wardRepository.BeginTransaction();
 			try
 			{
 				Ward wards = new()
@@ -109,19 +108,16 @@ namespace Entity.Services
 					WardName = model.WardName
 				};
 				await _wardRepository.InsertAsync(wards);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, wards, MessageConstants.INSERT_SUCCESS);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.INSERT_ERROR);
 			}
 		}
 
 		public async Task<ResponseEntity> UpdateWard(WardViewModel model)
 		{
-			using var transaction = _wardRepository.BeginTransaction();
 			try
 			{
 				var ward = await _wardRepository.GetSingleByIdAsync(c => c.Id == model.Id);
@@ -132,12 +128,10 @@ namespace Entity.Services
 				ward.DistrictId = model.DistrictId;
 				ward.WardName = model.WardName;
 				await _wardRepository.UpdateAsync(ward, ward);
-				transaction.Commit();
 				return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);
 			}
 			catch (Exception ex)
 			{
-				transaction.Rollback();
 				return new ResponseEntity(StatusCodeConstants.BAD_REQUEST, ex.Message, MessageConstants.UPDATE_ERROR);
 			}
 		}

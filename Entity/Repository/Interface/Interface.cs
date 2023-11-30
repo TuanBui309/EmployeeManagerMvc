@@ -19,6 +19,5 @@ namespace Entity.Repository.Interface
 		Task<IEnumerable<WardViewModel>> GetAllWardByKeyWord(string keyWord, int? pageNumber = null, int currentPage = 1, int pageSize = 5);
 		Task<IEnumerable<City>> GetAllCityByKeWord(string keyWord, int? pageNumber = null, int currentPage = 1, int pageSize = 5);
 		byte[] ExportToExcel<T>(IEnumerable<T> table, string filename);
-		IDbTransaction BeginTransaction();
 	}
 }
