@@ -30,7 +30,9 @@
                     <select asp-for="NationId"
                             class="form-select"
                             style="font-size: 12px"
-                            id="nation"></select>
+                            id="nation">
+                        <option id="nationName"></option>
+                    </select>
                     <span asp-validation-for="NationId" class="text-danger"></span>
                 </div>
             </div>
@@ -40,7 +42,9 @@
                 <label for="job">5.Nghề Nghiệp:</label>
                 <select asp-for="JobId"
                         class="form-select"
-                        id="job"></select>
+                        id="job">
+                    <option id="jobName"></option>
+                </select>
                 <span asp-validation-for="JobId" class="text-danger"></span>
             </div>
             <div class=" col-3 box">
@@ -69,7 +73,8 @@
                 <select asp-for="CityId"
                         class="form-select"
                         id="city">
-                    <option id="cityName"></option></select>
+                    <option id="cityName"></option>
+                </select>
                 <span asp-validation-for="CityId" class="text-danger"></span>
             </div>
             <div class=" col-3 box">
@@ -100,8 +105,8 @@
         var selectCity = $("#city");
         var selectWard = $("#ward");
         var selectDistrict = $("#district");
-        var selectJob = $("#job");
-        var selectNation = $("#nation");
+        var selectJobName = $("#jobName");
+        var selectNationName = $("#nationName");
         function fnCity() {
             $.ajax({
                 url: `/GetCityById?CityId=${@Model.CityId}`,
@@ -112,12 +117,11 @@
                     $("#cityName").text(data.content.cityName)
                     selectCity.change(function () {
                         selectDistrict.empty();
-                        selectWard.empty(); 
+                        selectWard.empty();
                     })
                     console.log(data.content);
                 },
                 error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
                     console.log("Error:", error);
                 }
             })
@@ -158,11 +162,11 @@
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    selectJob.append(`<option value="${data.content.id}">${data.content.jobName}</option>`);
+                    selectJobName.val(data.content.id)
+                    selectJobName.text(data.content.jobName)
                     console.log(data.content);
                 },
                 error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
                     console.log("Error:", error);
                 }
             });
@@ -173,11 +177,11 @@
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
-                    selectNation.append(`<option value="${data.content.id}">${data.content.nationName}</option>`);
+                    selectNationName.val(data.content.id)
+                    selectNationName.text(data.content.nationName)
                     console.log(data.content);
                 },
                 error: function (xhr, status, error) {
-                    // Xử lý lỗi nếu có
                     console.log("Error:", error);
                 }
             });
@@ -188,5 +192,4 @@
         fnNation();
         fnWard();
     });
-
 </script>

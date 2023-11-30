@@ -68,7 +68,7 @@ namespace Entity.Services
 			}
 			var result = new DistrictViewModel
 			{
-				CityId = district.Id,
+				CityId = district.CityId,
 				DistictName = district.DistictName,
 			};
 			return new ResponseEntity(StatusCodeConstants.OK, result, MessageConstants.MESSAGE_SUCCESS_200);

@@ -29,23 +29,19 @@
             <td>
                 @Model.PhoneNumber
             </td>
-            <td>
-                @Model.NationId
+            <td id="nationName">
             </td>
-            <td>
-                @Model.JobId
+            <td id="jobName">
+
             </td>
             <td>
                 @Model.IdentityCardNumber
             </td>
-            <td>
-                @Model.CityId
+            <td id="cityName">
             </td>
-            <td>
-                @Model.DistrictId
+            <td id="districtName">
             </td>
-            <td>
-                @Model.WardId
+            <td id="wardName">
             </td>
             <td>
                 <form asp-action="Delete">
@@ -57,3 +53,89 @@
         </tr>
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        var selectCity = $("#cityName");
+        var selectWard = $("#wardName");
+        var selectDistrict = $("#districtName");
+        var selectJobName = $("#jobName");
+        var selectNationName = $("#nationName");
+        function fnCity() {
+            $.ajax({
+                url: `/GetCityById?CityId=${@Model.CityId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#cityName").text(data.content.cityName)
+                    console.log(data.content);
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error:", error);
+                }
+            })
+        }
+        function fnDistrict() {
+            selectDistrict.empty();
+            $.ajax({
+                url: `/GetSingleDistrictById?id=${@Model.DistrictId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectDistrict.text(data.content.distictName);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            });
+        }
+        function fnWard() {
+            selectWard.empty();
+            $.ajax({
+                url: `/GetSingleWardById?id=${@Model.WardId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectWard.text(data.content.wardName);
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.log("Error:", error);
+                }
+            });
+        }
+        function fnJob() {
+            $.ajax({
+                url: `/GetJobById?id=${@Model.JobId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectJobName.text(data.content.jobName)
+                    console.log(data.content);
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error:", error);
+                }
+            });
+        }
+        function fnNation() {
+            $.ajax({
+                url: `/GetNationById?id=${@Model.NationId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    selectNationName.text(data.content.nationName)
+                    console.log(data.content);
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error:", error);
+                }
+            });
+        }
+        fnCity();
+        fnJob();
+        fnDistrict()
+        fnNation();
+        fnWard();
+    });
+</script>

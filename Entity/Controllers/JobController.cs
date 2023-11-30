@@ -94,7 +94,5 @@ namespace Entity.Controllers
 		{
 			return await _jobService.GetSingleJobById(id);
 		}
-
-
 	}
 }

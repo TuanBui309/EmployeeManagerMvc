@@ -3,6 +3,7 @@ using Entity.Models;
 using Entity.Repository.Repositories;
 using Entity.Services.Interface;
 using Entity.Services.ViewModels;
+
 namespace Entity.Services
 {
 
@@ -53,7 +54,7 @@ namespace Entity.Services
         {
             try
             {
-                var nation = await _nationRepository.GetSingleByIdAsync(c => c.Id == id);
+                var nation = await _nationRepository.GetSingleByIdAsync(x => x.Id == id);
                 if (nation == null)
                 {
                     return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
@@ -96,8 +97,8 @@ namespace Entity.Services
                 {
                     return new ResponseEntity(StatusCodeConstants.NOT_FOUND, "", MessageConstants.MESSAGE_ERROR_404);
                 }
-				nation.Id = model.Id;
-				nation.NationName = model.NationName;
+                nation.Id = model.Id;
+                nation.NationName = model.NationName;
                 await _nationRepository.UpdateAsync(nation, nation);
                 transaction.Commit();
                 return new ResponseEntity(StatusCodeConstants.OK, model, MessageConstants.MESSAGE_SUCCESS_200);

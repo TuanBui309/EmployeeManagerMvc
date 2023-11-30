@@ -1,47 +1,49 @@
 ﻿@model Entity.Services.ViewModels.DegreeViewModel
 @{
-	ViewData["Title"] = "View";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h3 class="text-center text-danger">@TempData["Error"]</h3>
 <form asp-action="Create">
-	<div class="center" style="height: 500px; width: 90%;border: 1px solid black;margin: 30px 5% 30px 5%;">
-		<div class="row">
-			<div asp-validation-summary="ModelOnly"></div>
-			<div class="col-4 box">
-				<label for="employeeId">1: Người Dùng:</label>
-				<select asp-for="EmployeeId"
-						class="form-select"
-						id="employeeId"></select>
-				<span asp-validation-for="EmployeeId" class="text-danger"></span>
-			</div>
-			<div class=" col-4 box">
-				<label for="dateOfBirth">2.Loại Văn Bằng:</label>
-				<input asp-for="DegreeName" style="width: 100%;" type="text">
-				<span asp-validation-for="DegreeName" class="text-danger"></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class=" col-3 box">
-				<label for="dateOfBirth">3.Nơi Đăng Kí</label>
-				<input asp-for="IssuedBy" style="width: 100%;" type="text">
-				<span asp-validation-for="IssuedBy" class="text-danger"></span>
-			</div>
-			<div class=" col-3 box">
-				<label for="dateOfBirth">3.Ngày Đăng Kí:</label>
-				<input asp-for="DateRange" style="width: 100%;" type="text">
-				<span asp-validation-for="DateRange" class="text-danger"></span>
-			</div>
-			<div class=" col-3 box">
-				<label for="dateOfBirth">3.Ngày Hết Hạn:</label>
-				<input asp-for="DateOfExpiry" style="width: 100%;" type="text">
-				<span asp-validation-for="DateOfExpiry" class="text-danger"></span>
-			</div>
-		</div>
-	</div>
-	<div class="botoom"
-		 style="display: flex ;align-items: center;justify-content:space-between ; margin: 0 5% 0 5%;">
-		<a href=""> Danh sach employee </a>
-		<button class="btn primary" type="submit">Luu</button>
-	</div>
+    <div class="center" style="height: 500px; width: 90%;border: 1px solid black;margin: 30px 5% 30px 5%;">
+        <div class="row">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="col-4 box">
+                <label for="employeeId">1: Người Dùng:</label>
+                <select asp-for="EmployeeId"
+                        class="form-select"
+                        id="employeeId">
+                    <option value="0">-- Chọn Người Dùng --</option>
+                </select>
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+            <div class=" col-4 box">
+                <label for="dateOfBirth">2.Loại Văn Bằng:</label>
+                <input asp-for="DegreeName" style="width: 100%;" type="text">
+                <span asp-validation-for="DegreeName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-3 box">
+                <label for="dateOfBirth">3.Nơi Đăng Kí</label>
+                <input asp-for="IssuedBy" style="width: 100%;" type="text">
+                <span asp-validation-for="IssuedBy" class="text-danger"></span>
+            </div>
+            <div class=" col-3 box">
+                <label for="dateOfBirth">3.Ngày Đăng Kí:</label>
+                <input asp-for="DateRange" style="width: 100%;" type="text">
+                <span asp-validation-for="DateRange" class="text-danger"></span>
+            </div>
+            <div class=" col-3 box">
+                <label for="dateOfBirth">3.Ngày Hết Hạn:</label>
+                <input asp-for="DateOfExpiry" style="width: 100%;" type="text">
+                <span asp-validation-for="DateOfExpiry" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="botoom"
+         style="display: flex ;align-items: center;justify-content:space-between ; margin: 0 5% 0 5%;">
+        <a href=""> Danh sach employee </a>
+        <button class="btn primary" type="submit">Luu</button>
+    </div>
 </form>

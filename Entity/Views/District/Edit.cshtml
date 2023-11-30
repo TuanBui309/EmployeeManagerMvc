@@ -13,7 +13,7 @@
                 <select asp-for="CityId"
                         class="form-select"
                         id="city">
-                    <option value="1">op</option>
+                    <option id="cityName"></option>
                 </select>
                 <span asp-validation-for="CityId" class="text-danger"></span>
             </div>
@@ -30,3 +30,25 @@
         <button class="btn primary" type="submit">Luu</button>
     </div>
 </form>
+<script>
+    $(document).ready(function () {
+        var selectCity = $("#cityName");
+        function fnCity() {
+            selectCity.empty();
+            $.ajax({
+                url: `/GetCityById?CityId=${@Model.CityId}`,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#cityName").val(data.content.id)
+                    $("#cityName").text(data.content.cityName)
+                    console.log("cityName", data.content);
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error:", error);
+                }
+            })
+        }
+        fnCity();
+    });
+</script>
