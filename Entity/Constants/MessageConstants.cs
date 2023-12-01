@@ -1,6 +1,6 @@
 ﻿namespace Entity.Constants
 {
-    public class MessageConstants
+    public static class MessageConstants
     {
         public static readonly string MESSAGE_ERROR_400 = "Yêu cầu không hợp lệ!";
         public static readonly string MESSAGE_ERROR_401 = "Không có quyền truy cập!";

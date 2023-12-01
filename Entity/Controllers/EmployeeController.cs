@@ -85,7 +85,7 @@ namespace Entity.Controllers
                     return RedirectToAction("");
                 }
                 TempData["Error"] = employee.Message;
-                return View();
+                return View(model);
             }
             foreach (var fail in result.Errors)
             {
@@ -159,12 +159,12 @@ namespace Entity.Controllers
                     return RedirectToAction("");
                 }
                 TempData["Error"] = "file is requied";
-                return View(file);
+                return View();
             }
             catch (Exception)
             {
                 TempData["Error"] = "Can't import data";
-                return View(file);
+                return RedirectToAction("");
             }
         }
 

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Uploads\\employee (14).xlsx"
     },
     {
+      "Id": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (2).xlsx",
+      "PackagePath": "staticwebassets\\Uploads\\employee (2).xlsx"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (3).xlsx",
       "PackagePath": "staticwebassets\\Uploads\\employee (3).xlsx"
     },
@@ -31,6 +35,10 @@
     {
       "Id": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee.xlsx",
       "PackagePath": "staticwebassets\\Uploads\\employee.xlsx"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\fabcdfcc2bb182efdba0.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\fabcdfcc2bb182efdba0.jpg"
     },
     {
       "Id": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\css\\home.css",

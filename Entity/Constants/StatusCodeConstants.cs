@@ -1,7 +1,7 @@
 ﻿
 namespace Entity.Constants
 {
-    public class StatusCodeConstants
+    public static class StatusCodeConstants
     {
        
         public static readonly int ERROR_SERVER = 500;
@@ -13,8 +13,15 @@ namespace Entity.Constants
         public static readonly int OK = 200;
 
     }
-    public class Validations
+    public static class Validations
     {
         public static readonly int MaximumNumberOfDegrees = 3;
+        public static readonly int MaxLenghtName = 250;
+        public static readonly int MinAge = 0;
+        public static readonly int MaxAge = 150;
+        public static readonly int MaxLenghtNameDegree = 250;
+        public static readonly int MaxLeghtIssuedBy = 550;
+
+
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qLq7ptZwOTWVTIqlEIVuOS9LYGHfq1c87swXOOCexoI=",
+  "Hash": "T58NTOHEIcPhaHkI8MikW9fiQX89YwUghGA3xM9sd74=",
   "Source": "Entity",
   "BasePath": "_content/Entity",
   "Mode": "Default",
@@ -1139,6 +1139,23 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\employee (14).xlsx"
     },
     {
+      "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (2).xlsx",
+      "SourceId": "Entity",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\",
+      "BasePath": "_content/Entity",
+      "RelativePath": "Uploads/employee (2).xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\employee (2).xlsx"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\employee (3).xlsx",
       "SourceId": "Entity",
       "SourceType": "Discovered",
@@ -1222,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\employee.xlsx"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\Uploads\\fabcdfcc2bb182efdba0.jpg",
+      "SourceId": "Entity",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Documents\\EmployeeManagerMvc\\Entity\\wwwroot\\",
+      "BasePath": "_content/Entity",
+      "RelativePath": "Uploads/fabcdfcc2bb182efdba0.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\fabcdfcc2bb182efdba0.jpg"
     }
   ]
 }

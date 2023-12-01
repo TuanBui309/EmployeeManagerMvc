@@ -1,4 +1,5 @@
-﻿using Entity.Repository.Repositories;
+﻿using Entity.Constants;
+using Entity.Repository.Repositories;
 using Entity.Repository.Respositories;
 using Entity.Respository.Respositories;
 using Entity.Services.Utilities;
@@ -26,11 +27,11 @@ namespace Entity.Services.Validation
 			_nationRepository = nationRepository;
 
 			RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required")
-				.MaximumLength(250).WithMessage("Name can not over 250 characters");
+				.MaximumLength(Validations.MaxLenghtName).WithMessage("Name can not over 250 characters");
 			RuleFor(x => x.DateOfBirth).NotEmpty().WithMessage("Date of birth is required").Must(FuncUtilities.BeAValidDate).WithMessage("Invaild date (dd/MM/yyyy)!");
 			RuleFor(x => x.Age).NotEmpty().WithMessage("Age is required")
-				.GreaterThan(0).WithMessage("Age must be greater than 0")
-				.LessThan(150).WithMessage("Age must be less than 150");
+				.GreaterThan(Validations.MinAge).WithMessage("Age must be greater than 0")
+				.LessThan(Validations.MaxAge).WithMessage("Age must be less than 150");
 			RuleFor(x => x.JobId).NotEmpty().WithMessage("JobId is required")
 				.MustAsync((model, JobId, CancellationToken) => IsValidJobId(model)).WithMessage("JobId does not exist");
 			RuleFor(x => x.NationId).NotEmpty().WithMessage("NationId is required")

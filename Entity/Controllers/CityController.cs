@@ -49,7 +49,7 @@ namespace Entity.Controllers
                     return RedirectToAction("");
                 }
                 TempData["Error"] = employee.Message;
-                return View();
+                return View(city);
             }
             else
             {
@@ -85,7 +85,7 @@ namespace Entity.Controllers
                     return RedirectToAction("");
                 }
                 TempData["Error"] = city.Message;
-                return View();
+                return View(model);
             }
             else
             {

@@ -32,7 +32,7 @@ namespace Entity.Controllers
 				return RedirectToAction("");
 			}
 			TempData["Error"] = result.Message;
-			return View(result);
+			return View(model);
 		}
 
 		public async Task<IActionResult> Details(int id)
@@ -67,7 +67,7 @@ namespace Entity.Controllers
 				return RedirectToAction("");
 			}
 			TempData["Error"] = result.Message;
-			return View(result.Content);
+			return View(model);
 		}
 
 		[HttpPost, ActionName("Delete")]
